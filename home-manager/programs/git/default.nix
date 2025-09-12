@@ -19,6 +19,7 @@ in
     extraConfig = {
       init.defaultBranch = "main";
       user.useConfigOnly = true;
+      commit.gpgsign = true;
     };
   };
 }
