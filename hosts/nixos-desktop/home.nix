@@ -14,6 +14,7 @@
     ../../home-manager/programs/git/users/personal
     ../../home-manager/programs/gpg
     ../../home-manager/programs/heroic
+    ../../home-manager/programs/kopia/ui
     ../../home-manager/programs/minecraft
     ../../home-manager/programs/obsidian
     ../../home-manager/programs/onlyoffice
