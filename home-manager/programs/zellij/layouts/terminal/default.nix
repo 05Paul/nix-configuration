@@ -1,0 +1,20 @@
+{ ... }:
+{
+  xdg.configFile."zellij/layouts/terminal.kdl" = {
+    text = ''
+      layout {
+          default_tab_template {
+              children
+              pane size=1 borderless=true {
+                  plugin location="zellij:compact-bar"
+              }
+          }
+
+          tab name="terminal" {
+              pane
+              pane size="20%"
+          }
+      }
+    '';
+  };
+}
