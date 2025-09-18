@@ -36,5 +36,13 @@ in
       wifi = true;
       fingerprint = true;
     };
+
+    git.users = {
+      personal = {
+        name = "Paul Skamrada"; # TODO make variable
+        email = "pl.skamrada@gmail.com";
+        signingKey = "";
+      };
+    };
   };
 }
