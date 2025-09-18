@@ -6,7 +6,16 @@
 
   home.packages = with pkgs; [
     hyprpanel
+    power-profiles-daemon
+    acpi
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "org.gnome.Nautilus.desktop"; 
+    };
+  };
 
   programs.hyprpanel = {
     enable = true;
@@ -86,7 +95,8 @@
         };
 
         network = {
-          showWifiInfo = false;
+          showWifiInfo = true;
+          truncation_size = 10;
         };
 
         notifications = {
@@ -95,10 +105,7 @@
 
         workspaces = {
           monitorSpecific = true;
-#          show_icons = false;
           show_numbered = true;
-#          showWsIcons = false;
-#          workspaceMask = false;
           numbered_active_indicator = "highlight";
         };
       };
@@ -144,11 +151,10 @@
         };
       };
 
+      scalingPriority = "hyprland";
+
       theme = {
         bar = {
-       # "theme.bar.floating": false,
-       # "theme.bar.enableShadow": false,
-       # "theme.bar.buttons.media.enableBorder": false,
           buttons = {
             background_opacity = 70;
           };
@@ -160,8 +166,9 @@
         };
 
         font = {
-          name = "JetBrainsMono Nerd Font";
-          label = "JetBrainsMono Nerd Font";
+          name = "JetBrainsMono Nerd Font Propo";
+          label = "JetBrainsMono Nerd Font Propo";
+          size = "1rem"; # make variable
         };
 
         notification = {

@@ -20,7 +20,7 @@ in
           modifier = "super";
           launcher = {
             max_items = 5;
-            default_terminal = "kritty";
+            default_terminal = "kitty";
             plugins.websearch = {
                 enable = true;
                 engines = [{
@@ -29,7 +29,7 @@ in
                     key = "g";
                 }];
             };
-            plugins.path.enable = false;
+            plugins.path.enable = true;
           };
         };
         switch = {

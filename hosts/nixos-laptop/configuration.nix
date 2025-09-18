@@ -10,14 +10,14 @@
       ./hardware-configuration.nix
       ../../nixos/desktop-environments/hyprland
       ../../nixos/features/bluetooth
-      ../../nixos/features/bootloader/grub
+      ../../nixos/features/bootloader/systemd-boot
       ../../nixos/features/locale/de_AT
       ../../nixos/features/local-bins
       ../../nixos/features/pipewire
       ../../nixos/features/unfree
       ../../nixos/programs/devenv
+      ../../nixos/programs/flatpak/processing
       ../../nixos/programs/flatpak/streamdeck
-      ../../nixos/programs/steam/gamescope-session
       ../../nixos/programs/stylix
       ../../nixos/services/printing
     ];

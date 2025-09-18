@@ -7,7 +7,7 @@
 
   xdg.desktopEntries = {
     yazi-window = {
-      name = "Yazi";
+      name = "Yazi (kitty)";
       icon = "yazi";
       comment = "Blazing fast terminal file manager written in Rust, based on Async I/O";
       terminal = true;

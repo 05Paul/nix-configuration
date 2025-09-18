@@ -25,4 +25,16 @@ in
       fingerprint = false;
     };
   };
+
+  laptop = {
+    hostname = "nixos-laptop";
+    dir = "nixos-laptop";
+    arch = "x86_64-linux";
+    user = users.personal;
+    features = {
+      battery = true;
+      wifi = true;
+      fingerprint = true;
+    };
+  };
 }

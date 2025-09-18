@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, host, ... }:
 let
   inherit (config.lib.stylix) colors;
   utils = import ./utils.nix { inherit lib; };
@@ -39,6 +39,10 @@ in
       "$font" = "Monospace";
       "$textColor" = utils.hexToRGBACall {
         hex = colors.base05;
+      };
+
+      auth = {
+        "fingerprint:enabled" = host.features.fingerprint;
       };
 
       input-field = {

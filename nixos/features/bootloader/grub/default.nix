@@ -6,11 +6,11 @@
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
-      efiInstallAsRemovable = true;
-      gfxmodeEfi = "2560x1440";
+      efiInstallAsRemovable = false;
     };
 
     efi = {
+      canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
   };

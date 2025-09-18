@@ -19,6 +19,16 @@
     };
   };
 
+  services.upower = {
+    enable = true;
+  };
+
+  services.logind = {
+    extraConfig = ''
+      HandlePowerKey=suspend
+    '';
+  };
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -27,6 +37,7 @@
 
   home-manager.users."${host.user}" = {
     imports = [
+      ../../../home-manager/desktop-environment/hypridle
       ../../../home-manager/desktop-environment/hyprlock
       ../../../home-manager/desktop-environment/hyprpaper
       ../../../home-manager/desktop-environment/HyprPanel
@@ -79,9 +90,10 @@
         };
 
         monitor = [
-          "DP-1, 2560x1440@165, 0x0, 1"
-          "DP-2, 2560x1440@165, 2560x0, 1"
-          "WAYLAND-1, disabled"
+          "eDP-1, 2256x1504@60, 0x0, 1"
+ #         "DP-1, 2560x1440@165, 0x0, 1"
+ #        "DP-2, 2560x1440@165, 2560x0, 1"
+ #         "WAYLAND-1, disabled"
         ];
 
         bind = [
@@ -129,22 +141,26 @@
           "$mainMod SHIFT, down, movetoworkspace, +1"
         ];
 
-        # Media-control +locked
+        # +locked
         bindl = [
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioNext, exec, playerctl position 5+"
           ", XF86AudioPrev, exec, playerctl position 5-"
 
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+          ", switch:Lid Switch, exec, pidof hyprlock || hyprlock"
         ];
 
-        # Media-control +locked +repeat
+        # +locked +repeat
         bindle = [
           ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%-"
+          ", XF86MonBrightnessUp, exec, brightnessctl -s set +5%"
         ];
 
-        # Media-control +locked +long-press
+        # +locked +long-press
         bindlo = [
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPrev, exec, playerctl previous"

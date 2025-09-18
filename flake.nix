@@ -10,6 +10,10 @@
        url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,6 +81,7 @@
       nixosConfigurations.nixos = mkNixOSConfiguration {
         host = hosts.vm;
         nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
       };
       
@@ -85,6 +90,16 @@
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
+      };
+
+      nixosConfigurations.nixos-laptop = mkNixOSConfiguration {
+        host = hosts.laptop;
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+        modules = [
+          inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+        ];
       };
     };
 }
