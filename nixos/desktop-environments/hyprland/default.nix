@@ -88,6 +88,10 @@
           kb_layout = "at,de";
           kb_options = "grp:alt_space_toggle";
           natural_scroll = true;
+
+          touchpad = {
+            natural_scroll = true;
+          };
         };
 
         monitor = [
