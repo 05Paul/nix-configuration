@@ -101,6 +101,10 @@
  #         "WAYLAND-1, disabled"
         ];
 
+        gestures = {
+          workspace_swipe = true;
+        };
+
         bind = [
           # General
           "$mainMod, T, exec, $terminal"
@@ -142,8 +146,8 @@
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-          "$mainMod SHIFT, up, movetoworkspace, -1"
-          "$mainMod SHIFT, down, movetoworkspace, +1"
+          "$mainMod SHIFT, left, movetoworkspace, -1"
+          "$mainMod SHIFT, right, movetoworkspace, +1"
         ];
 
         # +locked
