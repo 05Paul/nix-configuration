@@ -35,6 +35,10 @@
     xwayland.enable = true;
   };
 
+  security.polkit = {
+    enable = true;
+  };
+
   home-manager.users."${host.user}" = {
     imports = [
       ../../../home-manager/desktop-environment/hypridle

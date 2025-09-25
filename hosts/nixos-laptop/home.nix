@@ -4,6 +4,7 @@
     ../../home-manager/programs/alacritty
     ../../home-manager/programs/bash
     ../../home-manager/programs/bat
+    ../../home-manager/programs/bitwarden
     ../../home-manager/programs/devenv
     ../../home-manager/programs/direnv
     ../../home-manager/programs/discord
