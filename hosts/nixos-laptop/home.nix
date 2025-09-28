@@ -25,6 +25,7 @@
     ../../home-manager/programs/onlyoffice
     ../../home-manager/programs/spotify
     ../../home-manager/programs/starship
+    ../../home-manager/programs/xournalpp
     ../../home-manager/programs/yazi
     ../../home-manager/programs/zellij
     ../../home-manager/programs/zoxide
