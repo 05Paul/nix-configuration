@@ -11,6 +11,7 @@
       ../../nixos/desktop-environments/hyprland
       ../../nixos/features/bluetooth
       ../../nixos/features/bootloader/systemd-boot
+      ../../nixos/features/displaylink
       ../../nixos/features/locale/de_AT
       ../../nixos/features/local-bins
       ../../nixos/features/pipewire

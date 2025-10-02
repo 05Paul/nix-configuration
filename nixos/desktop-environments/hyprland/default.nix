@@ -91,7 +91,6 @@
         input = {
           kb_layout = "at,de";
           kb_options = "grp:alt_space_toggle";
-          natural_scroll = true;
 
           touchpad = {
             natural_scroll = true;
@@ -100,9 +99,11 @@
 
         monitor = [
           "eDP-1, 2256x1504@60, 0x0, 1"
- #         "DP-1, 2560x1440@165, 0x0, 1"
- #        "DP-2, 2560x1440@165, 2560x0, 1"
- #         "WAYLAND-1, disabled"
+          "DVI-I-1, 2560x1440@144, 2256x-1440, 1"
+          "DVI-I-2, 2560x1440@144, -304x-1440, 1"
+#          "DP-1, 2560x1440@165, 0x0, 1"
+#          "DP-2, 2560x1440@165, 2560x0, 1"
+#          "WAYLAND-1, disabled"
         ];
 
         gestures = {
@@ -152,6 +153,9 @@
 
           "$mainMod SHIFT, left, movetoworkspace, -1"
           "$mainMod SHIFT, right, movetoworkspace, +1"
+
+          "$mainMod SHIFT, up, movecurrentworkspacetomonitor, +1"
+          "$mainMod SHIFT, down, movecurrentworkspacetomonitor, -1"
         ];
 
         # +locked
