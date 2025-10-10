@@ -99,8 +99,8 @@
 
         monitor = [
           "eDP-1, 2256x1504@60, 0x0, 1"
-          "DVI-I-1, 2560x1440@144, 2256x-1440, 1"
-          "DVI-I-2, 2560x1440@144, -304x-1440, 1"
+          "desc:LG Electronics LG ULTRAGEAR 306MAPN8HB88, 2560x1440@144, 2256x-1440, 1"
+          "desc:LG Electronics LG ULTRAGEAR 306MAVD8HB87, 2560x1440@144, -304x-1440, 1"
 #          "DP-1, 2560x1440@165, 0x0, 1"
 #          "DP-2, 2560x1440@165, 2560x0, 1"
 #          "WAYLAND-1, disabled"
