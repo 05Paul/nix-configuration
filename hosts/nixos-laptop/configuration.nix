@@ -45,6 +45,8 @@
     wget
   ];
 
+  services.power-profiles-daemon.enable = true;
+
   # NEVER CHANGE
   system.stateVersion = "25.05";
 }
