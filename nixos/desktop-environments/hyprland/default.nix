@@ -101,6 +101,7 @@
           "eDP-1, 2256x1504@60, 0x0, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAPN8HB88, 2560x1440@144, 2256x-1440, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAVD8HB87, 2560x1440@144, -304x-1440, 1"
+          "desc:Wacom Tech Wacom One 13T 5BQ01D1000268, 1920x1080@60, 2256x0, 1"
 #          "DP-1, 2560x1440@165, 0x0, 1"
 #          "DP-2, 2560x1440@165, 2560x0, 1"
 #          "WAYLAND-1, disabled"
@@ -109,6 +110,13 @@
         gestures = {
           workspace_swipe = true;
         };
+
+        device = [
+          {
+            name = "wacom-one-pen-display-13.3\"-with-touch-pen";
+            output = "desc:Wacom Tech Wacom One 13T 5BQ01D1000268";
+          }
+        ];
 
         bind = [
           # General
@@ -166,7 +174,8 @@
 
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-          ", switch:Lid Switch, exec, pidof hyprlock || hyprlock"
+          ", switch:on:Lid Switch, exec, brightnessctl -s set 0%"
+          ", switch:off:Lid Switch, exec, brightnessctl -s set 50%"
         ];
 
         # +locked +repeat
