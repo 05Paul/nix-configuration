@@ -142,6 +142,14 @@
                 tooltip = "Spotify";
               };
             };
+
+            right = {
+              shortcut3 = {
+                command = "screenshot";
+                icon = "󰄀";
+                tooltip  = "Screenshot";
+              };
+            };
           };
         };
 

@@ -1,0 +1,4 @@
+[general]
+early-exit = true
+default-hide-toolbars = true
+actions-on-escape = [ "save-to-clipboard" ]

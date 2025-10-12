@@ -46,7 +46,10 @@
       ../../../home-manager/desktop-environment/hyprpaper
       ../../../home-manager/desktop-environment/HyprPanel
       ../../../home-manager/desktop-environment/hyprshell
+      ../../../home-manager/desktop-environment/hyprshot
       ../../../home-manager/desktop-environment/rofi
+      ../../../home-manager/desktop-environment/satty
+      ../../../home-manager/desktop-environment/screenshot-scripts
       ../../../home-manager/programs/kitty
     ];
 
@@ -128,6 +131,7 @@
           "$mainMod, L, exec, hyprlock"
           "$mainMod, Space, exec, rofi -show combi -combi-modes window,drun"
           "ALT, F4, killactive"
+          ", Print, exec, screenshot"
 
           # Focus
           "$mainMod, left, movefocus, l"
