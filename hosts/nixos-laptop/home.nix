@@ -31,7 +31,7 @@
     ../../home-manager/programs/zoxide
   ];
 
-  home.packages = [
+  home.packages = with pkgs; [
   ];
 
   dconf = {

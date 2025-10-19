@@ -41,6 +41,7 @@
 
   home-manager.users."${host.user}" = {
     imports = [
+      ../../../home-manager/desktop-environment/hyprgrass
       ../../../home-manager/desktop-environment/hypridle
       ../../../home-manager/desktop-environment/hyprlock
       ../../../home-manager/desktop-environment/hyprpaper
@@ -50,6 +51,7 @@
       ../../../home-manager/desktop-environment/rofi
       ../../../home-manager/desktop-environment/satty
       ../../../home-manager/desktop-environment/screenshot-scripts
+      ../../../home-manager/desktop-environment/wvkbd
       ../../../home-manager/programs/kitty
     ];
 
@@ -98,6 +100,11 @@
           touchpad = {
             natural_scroll = true;
           };
+
+          touchdevice = {
+            output = "desc:Wacom Tech Wacom One 13T 5BQ01D1000268";
+
+          };
         };
 
         monitor = [
@@ -110,8 +117,8 @@
 #          "WAYLAND-1, disabled"
         ];
 
-        gestures = {
-          workspace_swipe = true;
+    gestures = {
+      workspace_swipe = true;
         };
 
         device = [
@@ -119,6 +126,13 @@
             name = "wacom-one-pen-display-13.3\"-with-touch-pen";
             output = "desc:Wacom Tech Wacom One 13T 5BQ01D1000268";
           }
+        ];
+
+        hyprgrass-bind = [
+          ", edge:d:u, exec, toggle_osk"
+        ];
+
+        layerrule = [
         ];
 
         bind = [
@@ -129,6 +143,7 @@
           "$mainMod, page_up, fullscreen"
           "$mainMod, B, exec, firefox"
           "$mainMod, L, exec, hyprlock"
+          "$mainMod, R, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
           "$mainMod, Space, exec, rofi -show combi -combi-modes window,drun"
           "ALT, F4, killactive"
           ", Print, exec, screenshot"
