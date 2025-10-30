@@ -1,9 +1,13 @@
-{ host, ... }: {
+{ config, ... }: 
+let
+  inherit (config.customization) user;
+in
+{
   nix.settings.trusted-users = [
-    host.user
+    user.name
   ];
 
-  home-manager.users."${host.user}" = {
+  home-manager.users."${user.name}" = {
     imports = [
       ../../../home-manager/programs/devenv
     ];

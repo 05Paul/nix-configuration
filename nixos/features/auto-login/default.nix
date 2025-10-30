@@ -1,8 +1,11 @@
-{ host, ... }:
+{ config, ... }:
+let
+  inherit (config.customization) user;
+in
 {
   services.displayManager.autoLogin = {
     enable = true;
-    user = host.user;
+    user = user.name;
   };
 
   systemd.services = {

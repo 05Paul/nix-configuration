@@ -1,4 +1,4 @@
-{ lib, options, ... }:
+{ lib, config, ... }:
 {
   options.customization.user = {
     name = lib.mkOption {
@@ -11,7 +11,7 @@
 
     description = lib.mkOption {
       type = lib.types.str;
-      default = lib.toSentenceCase options.customization.user.name;
+      default = lib.toSentenceCase config.customization.user.name;
       description = ''
         description of the default user
       '';

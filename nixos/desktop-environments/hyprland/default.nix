@@ -1,4 +1,7 @@
-{ host, pkgs, ... }: 
+{ config, pkgs, ... }: 
+let
+  inherit (config.customization) user;
+in
 {
   imports = [
     ../../features/pipewire
@@ -9,12 +12,12 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-        user = "${host.user}";
+        user = "${user.name}";
       };
 
       initial_session = {
         command = "Hyprland";
-        user = "${host.user}";
+        user = "${user.name}";
       };
     };
   };
@@ -39,7 +42,7 @@
     enable = true;
   };
 
-  home-manager.users."${host.user}" = {
+  home-manager.users."${user.name}" = {
     imports = [
       ../../../home-manager/desktop-environment/hyprgrass
       ../../../home-manager/desktop-environment/hypridle

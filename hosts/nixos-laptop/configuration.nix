@@ -2,8 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ host, ... }:
-
+{ config, host, ... }:
+let 
+  inherit (config.customization) user;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -17,6 +19,10 @@
 
   customization = {
     user.name = host.user;
+  };
+  
+  home-manager.users."${user.name}".home = {
+    stateVersion = "25.05";
   };
   
   networking.hostName = host.hostname;

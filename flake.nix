@@ -63,7 +63,6 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
-              home-manager.users."${host.user}" = import ./hosts/${host.dir}/home.nix;
               home-manager.sharedModules = [
                 inputs.nixvim.homeManagerModules.nixvim
               ];

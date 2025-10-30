@@ -1,4 +1,7 @@
-{ pkgs, host, ... }:
+{ pkgs, config, ... }:
+let
+  inherit (config.customization) user;
+in
 {
   imports = [
     ../../steam
@@ -24,12 +27,12 @@
     serviceConfig.ExecStart = [
       ""
       ''
-      @${pkgs.util-linux}/sbin/agetty agetty -o '-p -f -- \\u' --noclear --autologin ${host.user} %I TERM
+      @${pkgs.util-linux}/sbin/agetty agetty -o '-p -f -- \\u' --noclear --autologin ${user.name} %I TERM
       ''
     ];
   };
 
-  home-manager.users."${host.user}" = { ... }: {
+  home-manager.users."${user.name}" = { ... }: {
     home.file.".local/bin/gamescope-session" = {
       source = ./bins/gamescope-session;
       executable = true;

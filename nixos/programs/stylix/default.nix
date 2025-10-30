@@ -1,4 +1,7 @@
-{ pkgs, host, ... }:
+{ pkgs, config, ... }:
+let
+  inherit (config.customization) user;
+in
 {
   stylix = {
     enable = true;
@@ -16,7 +19,7 @@
     };
   };
 
-  home-manager.users."${host.user}" = {
+  home-manager.users."${user.name}" = {
     stylix.icons = {
       enable = true;
       package = pkgs.papirus-icon-theme;

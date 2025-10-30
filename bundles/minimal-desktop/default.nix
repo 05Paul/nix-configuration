@@ -1,5 +1,6 @@
 { config, ... }:
-  let user = config.customization.user;
+let
+   inherit (config.customization) user;
 in
 {
   imports = [
