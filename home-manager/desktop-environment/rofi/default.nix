@@ -30,8 +30,10 @@ in
       "*" = {
         fg = mkLiteral "#${colors.base05}FF";
         fg-alt = mkLiteral "#${colors.base00}FF";
-        bg = mkLiteral "#${colors.base00}00";
+        bg = mkLiteral "#${colors.base00}87";
         bg-active = mkLiteral "#${colors.base09}AA";
+
+        transparent = mkLiteral "#${colors.base00}00";
 
         brd-color = mkLiteral "#${colors.base09}FF";
         brd-none = mkLiteral "0px solid";
@@ -43,10 +45,11 @@ in
         pad-prompt = mkLiteral "5px 15px 5px 5px";
 
         icon-size = mkLiteral "1em";
+        spacing = mkLiteral "0px";
       };
       
       "listview" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         border = mkLiteral "@brd-none";
         columns = 1;
         lines = 7;
@@ -67,51 +70,51 @@ in
       };
 
       "mainbox" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
       };
 
       "inputbar" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         children = map mkLiteral ["prompt" "entry"];
       };
 
       "prompt" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         text-color = mkLiteral "@fg";
         padding = mkLiteral "@pad-prompt";
       };
 
       "entry" = {
-        background-color = mkLiteral  "@bg";
+        background-color = mkLiteral  "@transparent";
         text-color = mkLiteral "@fg";
         padding = mkLiteral "@pad";
       };
 
       "element" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         border-radius = mkLiteral "@brd-radius";
         text-color = mkLiteral "@fg";
       };
 
       "element-icon" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         padding = mkLiteral "@pad";
         size = mkLiteral "@icon-size";
       };
 
       "element-text" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         text-color = mkLiteral "inherit";
         padding = mkLiteral "@pad";
       };
 
       "element normal.normal" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         text-color = mkLiteral "@fg";
       };
 
       "element alternate.normal" = {
-        background-color = mkLiteral "@bg";
+        background-color = mkLiteral "@transparent";
         text-color = mkLiteral "@fg";
       };
 

@@ -44,6 +44,7 @@ in
 
   home-manager.users."${user.name}" = {
     imports = [
+      ../../../home-manager/desktop-environment/cliphist
       ../../../home-manager/desktop-environment/hyprgrass
       ../../../home-manager/desktop-environment/hypridle
       ../../../home-manager/desktop-environment/hyprlock
@@ -85,6 +86,8 @@ in
           "hyprlock"
           "hyprpanel"
           "hyprshell run -vv"
+          "wl-paste --type text --watch cliphist store" # Stores only text data
+          "wl-paste --type image --watch cliphist store" # Stores only image data
         ];
 
         general =  {
@@ -147,6 +150,7 @@ in
           "$mainMod, B, exec, firefox"
           "$mainMod, L, exec, hyprlock"
           "$mainMod, R, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
+          "$mainMod, V, exec, clipboard"
           "$mainMod, Space, exec, rofi -show combi -combi-modes window,drun"
           "ALT, F4, killactive"
           ", Print, exec, screenshot"

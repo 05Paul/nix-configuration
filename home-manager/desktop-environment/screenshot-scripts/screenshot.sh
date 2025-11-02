@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-script=$(ls ~/.local/share/screenshot | rofi -dmenu)
+script=$(ls ~/.local/share/screenshot | rofi -dmenu -p 󰄀)
 sleep 0.6
 
 if [ -z "$script" ]; then
