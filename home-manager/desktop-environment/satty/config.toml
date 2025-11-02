@@ -1,4 +1,4 @@
 [general]
 early-exit = true
-default-hide-toolbars = true
+copy-command = "wl-copy"
 actions-on-escape = [ "save-to-clipboard" ]

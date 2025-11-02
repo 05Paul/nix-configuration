@@ -52,7 +52,7 @@ in
         background-color = mkLiteral "@transparent";
         border = mkLiteral "@brd-none";
         columns = 1;
-        lines = 7;
+        lines = 10;
         fixed-height = true;
         fixed-columnds = true;
         cycle = false;
@@ -66,7 +66,7 @@ in
         border = mkLiteral "@brd-thin";
         border-color = mkLiteral "@brd-color";
         padding = mkLiteral "@pad";
-        width = mkLiteral "600px";
+        width = mkLiteral "800px";
       };
 
       "mainbox" = {
