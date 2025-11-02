@@ -8,6 +8,7 @@
     hyprpanel
     power-profiles-daemon
     acpi
+    gnome.gvfs
   ];
 
   xdg.mimeApps = {
