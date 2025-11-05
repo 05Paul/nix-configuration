@@ -84,6 +84,17 @@ in
         padding = mkLiteral "@pad-prompt";
       };
 
+      "message" = {
+        background-color = mkLiteral "@transparent";
+        text-color = mkLiteral "@fg";
+      };
+
+      "textbox" = {
+        background-color = mkLiteral "@transparent";
+        text-color = mkLiteral "@fg";
+        horizontal-align = mkLiteral "0.5";
+      };
+
       "entry" = {
         background-color = mkLiteral  "@transparent";
         text-color = mkLiteral "@fg";
