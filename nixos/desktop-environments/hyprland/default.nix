@@ -123,8 +123,8 @@ in
 #          "WAYLAND-1, disabled"
         ];
 
-    gestures = {
-      workspace_swipe = true;
+        gestures = {
+          workspace_swipe = true;
         };
 
         device = [
@@ -141,81 +141,83 @@ in
         layerrule = [
         ];
 
-        bind = [
+        bindd = [
           # General
-          "$mainMod, T, exec, $terminal"
-          "$mainMod, Q, exit"
-          "$mainMod, F, togglefloating"
-          "$mainMod, page_up, fullscreen"
-          "$mainMod, B, exec, firefox"
-          "$mainMod, L, exec, hyprlock"
-          "$mainMod, R, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
-          "$mainMod, V, exec, clipboard"
-          "$mainMod, Space, exec, rofi -show combi -combi-modes window,drun"
-          "ALT, F4, killactive"
-          ", Print, exec, screenshot"
+          "$mainMod, T, Terminal, exec, $terminal"
+          "$mainMod, Q, Log out, exit"
+          "$mainMod, F, Toggle floating, togglefloating"
+          "$mainMod, page_up, Fullscreen, fullscreen"
+          "$mainMod, B, Open Firefox, exec, firefox"
+          "$mainMod, L, Lock screen, exec, hyprlock"
+          "$mainMod, R, Reload Panel, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
+          "$mainMod, V, Clipboard, exec, clipboard"
+          "$mainMod, Space, Launcher, exec, rofi -show combi -combi-modes window,drun"
+          "ALT, F4, Quit, killactive"
+          ", Print, Screenshot, exec, screenshot"
 
           # Focus
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
+          "$mainMod, left, Move focus left, movefocus, l"
+          "$mainMod, right, Move focus right, movefocus, r"
+          "$mainMod, up, Move focus up, movefocus, u"
+          "$mainMod, down, Move focus down, movefocus, d"
 
           # Workspace switch with: mainMod + [ 0-9 ]
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
+          "$mainMod, 1, Switch to workspace 1, workspace, 1"
+          "$mainMod, 2, Switch to workspace 2, workspace, 2"
+          "$mainMod, 3, Switch to workspace 3, workspace, 3"
+          "$mainMod, 4, Switch to workspace 4, workspace, 4"
+          "$mainMod, 5, Switch to workspace 5, workspace, 5"
+          "$mainMod, 6, Switch to workspace 6, workspace, 6"
+          "$mainMod, 7, Switch to workspace 7, workspace, 7"
+          "$mainMod, 8, Switch to workspace 8, workspace, 8"
+          "$mainMod, 9, Switch to workspace 9, workspace, 9"
+          "$mainMod, 0, Switch to workspace 10, workspace, 10"
 
           # Move window to workspace with: mainMod Shift + [ 0-9 ]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+          "$mainMod SHIFT, 1, Move to workspace 1, movetoworkspace, 1"
+          "$mainMod SHIFT, 2, Move to workspace 2, movetoworkspace, 2"
+          "$mainMod SHIFT, 3, Move to workspace 3, movetoworkspace, 3"
+          "$mainMod SHIFT, 4, Move to workspace 4, movetoworkspace, 4"
+          "$mainMod SHIFT, 5, Move to workspace 5, movetoworkspace, 5"
+          "$mainMod SHIFT, 6, Move to workspace 6, movetoworkspace, 6"
+          "$mainMod SHIFT, 7, Move to workspace 7, movetoworkspace, 7"
+          "$mainMod SHIFT, 8, Move to workspace 8, movetoworkspace, 8"
+          "$mainMod SHIFT, 9, Move to workspace 9, movetoworkspace, 9"
+          "$mainMod SHIFT, 0, Move to workspace 10, movetoworkspace, 10"
 
-          "$mainMod SHIFT, left, movetoworkspace, -1"
-          "$mainMod SHIFT, right, movetoworkspace, +1"
+          "$mainMod SHIFT, right, Move to next workspace, movetoworkspace, +1"
+          "$mainMod SHIFT, left, Move to previous workspace, movetoworkspace, -1"
 
-          "$mainMod SHIFT, up, movecurrentworkspacetomonitor, +1"
-          "$mainMod SHIFT, down, movecurrentworkspacetomonitor, -1"
+          "$mainMod SHIFT, up, Move workspace to next monitor, movecurrentworkspacetomonitor, +1"
+          "$mainMod SHIFT, down, Move workspace to previous monitor, movecurrentworkspacetomonitor, -1"
         ];
 
         # +locked
-        bindl = [
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioNext, exec, playerctl position 5+"
-          ", XF86AudioPrev, exec, playerctl position 5-"
+        binddl = [
+          ", XF86AudioPlay, Play/Pause, exec, playerctl play-pause"
 
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioNext, Forward 5 seconds, exec, playerctl position 5+"
+          ", XF86AudioPrev, Rewind 5 seconds, exec, playerctl position 5-"
 
-          ", switch:on:Lid Switch, exec, brightnessctl -s set 0%"
-          ", switch:off:Lid Switch, exec, brightnessctl -s set 50%"
+          ", XF86AudioMute, Mute audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+          ", switch:on:Lid Switch, Set brightness to 0%, exec, brightnessctl -s set 0%"
+          ", switch:off:Lid Switch, Set brightness to 50%, exec, brightnessctl -s set 50%"
         ];
 
         # +locked +repeat
-        bindle = [
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%-"
-          ", XF86MonBrightnessUp, exec, brightnessctl -s set +5%"
+        binddle = [
+          ", XF86AudioRaiseVolume, Increase volume by 5%, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, Decrease volume by 5%, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+          ", XF86MonBrightnessUp, Increase brightness by 5%, exec, brightnessctl -s set +5%"
+          ", XF86MonBrightnessDown, Decrease brightness by 5%, exec, brightnessctl -s set 5%-"
         ];
 
         # +locked +long-press
-        bindlo = [
-          ", XF86AudioNext, exec, playerctl next"
-          ", XF86AudioPrev, exec, playerctl previous"
+        binddlo = [
+          ", XF86AudioNext, Next song, exec, playerctl next"
+          ", XF86AudioPrev, Previous song, exec, playerctl previous"
         ];
       };
     };
