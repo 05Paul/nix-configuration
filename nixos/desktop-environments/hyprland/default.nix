@@ -138,19 +138,21 @@ in
           ", edge:d:u, exec, toggle_osk"
         ];
 
-        layerrule = [
+        windowrule = [
+          "float, center, class:floating-nm"
         ];
 
         bindd = [
           # General
-          "$mainMod, T, Terminal, exec, $terminal"
-          "$mainMod, Q, Log out, exit"
-          "$mainMod, F, Toggle floating, togglefloating"
-          "$mainMod, page_up, Fullscreen, fullscreen"
           "$mainMod, B, Open Firefox, exec, firefox"
+          "$mainMod, F, Toggle floating, togglefloating"
           "$mainMod, L, Lock screen, exec, hyprlock"
+          "$mainMod, N, Open network-settings, exec, pkill nmtui || kitty --class floating-nm nmtui"
+          "$mainMod, Q, Log out, exit"
           "$mainMod, R, Reload Panel, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
+          "$mainMod, T, Terminal, exec, $terminal"
           "$mainMod, V, Clipboard, exec, clipboard"
+          "$mainMod, page_up, Fullscreen, fullscreen"
           "$mainMod, Space, Launcher, exec, rofi -show combi -combi-modes window,drun"
           "ALT, F4, Quit, killactive"
           ", Print, Screenshot, exec, screenshot"
