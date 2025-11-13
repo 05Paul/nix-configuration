@@ -48,7 +48,7 @@
 
           worldclock = {
             formatDiffDate = "%a %b %d  %H:%M:%S %Z";
-            format = "%H:%M:%S %Z";
+            format = "%F | %H:%M:%S %Z";
             tz = [
               "Europe/Vienna"
             ];

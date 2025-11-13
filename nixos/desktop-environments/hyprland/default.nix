@@ -48,6 +48,7 @@ in
       ../../../home-manager/desktop-environment/hyprgrass
       ../../../home-manager/desktop-environment/hypridle
       ../../../home-manager/desktop-environment/hyprlock
+      ../../../home-manager/desktop-environment/hyprmon
       ../../../home-manager/desktop-environment/hyprpaper
       ../../../home-manager/desktop-environment/HyprPanel
       ../../../home-manager/desktop-environment/hyprshell
@@ -114,6 +115,7 @@ in
         };
 
         monitor = [
+          ", preferred, auto, 1, mirror, DP-1"
           "eDP-1, 2256x1504@60, 0x0, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAPN8HB88, 2560x1440@144, 2256x-1440, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAVD8HB87, 2560x1440@144, -304x-1440, 1"
@@ -139,7 +141,7 @@ in
         ];
 
         windowrule = [
-          "float, center, class:floating-nm"
+          "float, center, class:floating"
         ];
 
         bindd = [
@@ -147,7 +149,8 @@ in
           "$mainMod, B, Open Firefox, exec, firefox"
           "$mainMod, F, Toggle floating, togglefloating"
           "$mainMod, L, Lock screen, exec, hyprlock"
-          "$mainMod, N, Open network-settings, exec, pkill nmtui || kitty --class floating-nm nmtui"
+          "$mainMod, P, Open hyprmon, exec, pkill hyprmon || kitty --class floating hyprmon"
+          "$mainMod, N, Open network-settings, exec, pkill nmtui || kitty --class floating nmtui"
           "$mainMod, Q, Log out, exit"
           "$mainMod, R, Reload Panel, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
           "$mainMod, T, Terminal, exec, $terminal"

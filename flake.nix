@@ -37,6 +37,10 @@
       url = "github:H3rmt/hyprshell?ref=hyprshell-release";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    hyprmon = {
+      url = "github:erans/hyprmon";
+    };
   };
 
   outputs = { self, ... }@inputs:
@@ -53,8 +57,14 @@
         }:
         nixpkgs.lib.nixosSystem {
           system = host.arch;
-          specialArgs = {
+          specialArgs = let
+            system = host.arch;
+          in {
             inherit host;
+            pkgs-un = import pkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
           modules = [
             ./hosts/${host.dir}/configuration.nix
@@ -69,6 +79,7 @@
               home-manager.extraSpecialArgs = {
                 inherit host;
                 hyprshell = inputs.hyprshell;
+                hyprmon = inputs.hyprmon;
                 pkgs-unstable = pkgs-unstable.legacyPackages.${host.arch};
               };
             }
