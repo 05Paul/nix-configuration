@@ -1,5 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    ripgrep
+    fd
+  ];
+
   programs.nixvim.plugins.telescope = {
     enable = true;
     keymaps = {
