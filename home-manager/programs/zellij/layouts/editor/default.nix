@@ -59,6 +59,7 @@ in
           tab name="terminal" {
               pane borderless=true focus=true {
                   command "bash"
+                  args "-i"
               }
           }
       }
