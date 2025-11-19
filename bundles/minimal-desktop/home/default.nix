@@ -5,6 +5,7 @@
     ../../../home-manager/programs/bitwarden
     ../../../home-manager/programs/discord
     ../../../home-manager/programs/firefox
+    ../../../home-manager/programs/geogebra
     ../../../home-manager/programs/kopia/ui
     ../../../home-manager/programs/nautilus
     ../../../home-manager/programs/obsidian
