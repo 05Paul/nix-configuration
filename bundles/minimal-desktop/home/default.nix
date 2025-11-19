@@ -11,10 +11,11 @@
     ../../../home-manager/programs/onlyoffice
     ../../../home-manager/programs/spotify
     ../../../home-manager/programs/starship
+    ../../../home-manager/programs/thunderbird
+    ../../../home-manager/programs/winboat
     ../../../home-manager/programs/xournalpp
     ../../../home-manager/programs/yazi
     ../../../home-manager/programs/zellij
     ../../../home-manager/programs/zoxide
-    ../../../home-manager/programs/winboat
   ];
 }
