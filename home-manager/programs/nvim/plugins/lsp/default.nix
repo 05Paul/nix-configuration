@@ -78,10 +78,6 @@
     };
 
     servers = {
-      ansiblels = {
-        enable = true;
-      };
-
       bashls = {
         enable = true;
       };

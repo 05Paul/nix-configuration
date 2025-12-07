@@ -11,15 +11,14 @@ in
   programs.git = {
     enable = true;
 
-    aliases = {
-      identity = "! git-identity";
-      id = "! git-identity";
-    };
-
-    extraConfig = {
+     settings = {
       init.defaultBranch = "main";
       user.useConfigOnly = true;
       commit.gpgsign = true;
+      alias = {
+        identity = "! git-identity";
+        id = "! git-identity";
+      };
     };
   };
 }

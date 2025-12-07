@@ -11,7 +11,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        command = "${pkgs.greetd}/bin/agreety --cmd Hyprland";
         user = "${user.name}";
       };
 
@@ -27,9 +27,9 @@ in
   };
 
   services.logind = {
-    extraConfig = ''
-      HandlePowerKey=suspend
-    '';
+    settings.Login = {
+      HandlePowerKey= "suspend";
+    };
   };
 
   programs.hyprland = {
@@ -125,9 +125,9 @@ in
 #          "WAYLAND-1, disabled"
         ];
 
-        gestures = {
-          workspace_swipe = true;
-        };
+        gesture = [
+          "3,horizontal,workspace"
+        ];
 
         device = [
           {

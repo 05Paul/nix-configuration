@@ -13,11 +13,6 @@
 
     settings = {
       keybinds = {
-        normal = {
-          # uncomment this and adjust key if using copy_on_select=false
-          # "bind \"Alt c\"" = { Copy = {}; };
-        };
-
         locked = {
           "bind \"Ctrl g\"" = {
             SwitchToMode = "Normal"; 

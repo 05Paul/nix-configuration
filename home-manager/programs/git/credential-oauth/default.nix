@@ -4,7 +4,7 @@
     enable = true;
   };
 
-  programs.git.extraConfig = {
+  programs.git.settings = {
     credential.helper = [
       "cache --timeout 3600"
       "oauth"

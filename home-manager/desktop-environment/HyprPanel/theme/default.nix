@@ -1,10 +1,10 @@
-{ config, ...}:
+{ config, lib, ...}:
 let
   inherit (config.lib.stylix) colors;
 in
 {
   # get remaining colors: cat home-manager/desktop-environment/HyprPanel/theme/default.nix | grep -e '"#......"' -o | sort | uniq --count | bat
-  programs.hyprpanel.settings.theme = {
+  programs.hyprpanel.settings.theme = lib.mkDefault {
     bar = {
       background = "#${colors.base01}";
 

@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-   ../../nixos/features/bootloader/systemd-boot
+   ../../nixos/features/bootloader/limine
    ../../nixos/features/displaylink
    ../../nixos/services/power-profiles-daemon
   ];
