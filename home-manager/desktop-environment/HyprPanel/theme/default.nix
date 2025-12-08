@@ -4,7 +4,10 @@ let
 in
 {
   # get remaining colors: cat home-manager/desktop-environment/HyprPanel/theme/default.nix | grep -e '"#......"' -o | sort | uniq --count | bat
-  programs.hyprpanel.settings.theme = lib.mkDefault {
+
+  stylix.targets.hyprpanel.enable = false;
+
+  programs.hyprpanel.settings.theme = {
     bar = {
       background = "#${colors.base01}";
 

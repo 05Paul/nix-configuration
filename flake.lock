@@ -738,11 +738,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1761669082,
-        "narHash": "sha256-7psB6gjicAybzBvlQErvm/K7UZS1j/aIDkPtsZ4ZQEs=",
+        "lastModified": 1765128087,
+        "narHash": "sha256-p1a0lcjMWh+IUAEOMfQoh9WDQMu2s0x5rO+LiporBQ0=",
         "owner": "erans",
         "repo": "hyprmon",
-        "rev": "fc2ccaf7bb4eadded9655b2baf42a3484900925a",
+        "rev": "dc4b48384023b275e988280eb569d3e1d4c2eb35",
         "type": "github"
       },
       "original": {

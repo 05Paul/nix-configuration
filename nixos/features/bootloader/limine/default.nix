@@ -1,9 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    sbctl
+  ];
+
   boot.loader = {
     limine = {
       enable = true;
       maxGenerations = 5;
+      secureBoot.enable = true;
       style = {
         graphicalTerminal = {
           font = {

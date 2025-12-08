@@ -83,10 +83,6 @@
             "notifications"
           ]
           ++ lib.optional host.features.battery "battery"
-          ++
-          [
-            "custom/lock"
-          ]
           ;
 
         };

@@ -13,13 +13,19 @@ in
       ../../bundles/development
       ../../bundles/hyprland-desktop
       ../../bundles/gaming
-      ../../nixos/features/bootloader/grub
+      ../../nixos/features/bootloader/limine
       ../../nixos/programs/steam/gamescope-session
     ];
 
   customization = {
     user.name = host.user;
   };
+
+  boot.loader.limine.extraEntries = ''
+    /Windows
+      protocol: efi
+      path: uuid(0f1c46b0-4adc-453b-b1fb-c2de14670107):/EFI/Microsoft/Boot/bootmgfw.efi
+  '' ;
 
   home-manager.users."${user.name}".home = {
     stateVersion = "25.05";
