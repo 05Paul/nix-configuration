@@ -5,6 +5,7 @@ in
 {
   imports = [
     ../minimal
+    ../../nixos/features/automount-usb
     ../../nixos/features/bluetooth
     ../../nixos/features/nerdfont
     ../../nixos/features/pipewire
