@@ -13,7 +13,7 @@ in
       ../../bundles/development
       ../../bundles/hyprland-desktop
       ../../bundles/gaming
-      ../../nixos/features/bootloader/limine
+      ../../nixos/features/bootloader/limine/secureboot
       ../../nixos/programs/steam/gamescope-session
     ];
 

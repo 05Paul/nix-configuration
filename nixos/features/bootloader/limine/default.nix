@@ -8,7 +8,6 @@
     limine = {
       enable = true;
       maxGenerations = 5;
-      secureBoot.enable = true;
       style = {
         graphicalTerminal = {
           font = {
