@@ -1,44 +1,38 @@
-{ config, hyprshell, ... }: 
+{ config, ... }: 
 let
   inherit (config.lib.stylix) colors;
 in
 {
-  imports = [
-    hyprshell.homeModules.hyprshell
-  ];
-
-  programs.hyprshell = {
+  services.hyprshell = {
     enable = true;
     systemd.enable = false;
     systemd.args = "-vv";
     settings = {
       windows = {
-        enable = true;
         overview = {
-          enable = true;
           key = "super_l";
           modifier = "super";
           launcher = {
             max_items = 5;
             default_terminal = "kitty";
             plugins.websearch = {
-                enable = true;
                 engines = [{
                     name = "DuckDuckGo";
                     url = "https://duckduckgo.com/?q={}";
                     key = "g";
                 }];
             };
-            plugins.path.enable = true;
+            plugins.path = {
+            };
           };
         };
         switch = {
-          enable = true;
+          modifier = "alt";
         };
       };
     };
 
-    styleFile = ''
+    style = ''
       :root {
           --border-color: #${colors.base0A}00;
           --border-color-active: #${colors.base09}FF;
