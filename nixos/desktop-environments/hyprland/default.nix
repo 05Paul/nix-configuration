@@ -202,7 +202,7 @@ in
           ", XF86AudioMute, Mute audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
           ", switch:on:Lid Switch, Set brightness to 0%, exec, brightnessctl -s set 0%"
-          ", switch:off:Lid Switch, Set brightness to 50%, exec, brightnessctl -s set 50%"
+          ", switch:off:Lid Switch, Set brightness to 50%, exec, brightnessctl -r"
         ];
 
         # +locked +repeat
