@@ -2,7 +2,6 @@
 {
   imports = [
     ../../../home-manager/programs/alacritty
-    ../../../home-manager/programs/bitwarden
     ../../../home-manager/programs/discord
     ../../../home-manager/programs/firefox
     ../../../home-manager/programs/geogebra
