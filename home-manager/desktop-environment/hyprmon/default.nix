@@ -1,6 +1,6 @@
-{ pkgs, hyprmon, ...}:
+{ pkgs, ...}:
 {
-  home.packages = [
-    hyprmon.packages.${pkgs.stdenv.hostPlatform.system}.hyprmon
+  home.packages = with pkgs; [
+    hyprmon
   ];
 }

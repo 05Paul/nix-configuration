@@ -45,7 +45,6 @@ in
   home-manager.users."${user.name}" = {
     imports = [
       ../../../home-manager/desktop-environment/cliphist
-      ../../../home-manager/desktop-environment/hyprgrass
       ../../../home-manager/desktop-environment/hypridle
       ../../../home-manager/desktop-environment/hyprlock
       ../../../home-manager/desktop-environment/hyprmon
@@ -86,7 +85,6 @@ in
         exec-once = [
           "hyprlock"
           "hyprpanel"
-          "hyprshell run -vv"
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
         ];
@@ -126,7 +124,8 @@ in
         ];
 
         gesture = [
-          "3,horizontal,workspace"
+          "3, horizontal, workspace"
+          "4, up, dispatcher, exec, toggle_osk"
         ];
 
         device = [
@@ -134,10 +133,6 @@ in
             name = "wacom-one-pen-display-13.3\"-with-touch-pen";
             output = "desc:Wacom Tech Wacom One 13T 5BQ01D1000268";
           }
-        ];
-
-        hyprgrass-bind = [
-          ", edge:d:u, exec, toggle_osk"
         ];
 
         windowrule = [
@@ -152,7 +147,7 @@ in
           "$mainMod, P, Open hyprmon, exec, pkill hyprmon || kitty --class floating hyprmon"
           "$mainMod, N, Open network-settings, exec, pkill nmtui || kitty --class floating nmtui"
           "$mainMod, Q, Log out, exit"
-          "$mainMod, R, Reload Panel, exec, hyprpanel --quit; hyprpanel& pkill hyprshell; hyprshell run -vv&"
+          "$mainMod, R, Reload Panel, exec, hyprpanel --quit; hyprpanel& systemctl --user restart hyprshell"
           "$mainMod, T, Terminal, exec, $terminal"
           "$mainMod, V, Clipboard, exec, clipboard"
           "$mainMod, page_up, Fullscreen, fullscreen"

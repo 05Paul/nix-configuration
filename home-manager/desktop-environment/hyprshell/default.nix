@@ -5,7 +5,7 @@ in
 {
   services.hyprshell = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     systemd.args = "-vv";
     settings = {
       windows = {

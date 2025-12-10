@@ -33,14 +33,6 @@
       url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     };
 
-    hyprshell = {
-      url = "github:H3rmt/hyprshell?ref=hyprshell-release";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    hyprmon = {
-      url = "github:erans/hyprmon";
-    };
   };
 
   outputs = { self, ... }@inputs:
@@ -78,8 +70,6 @@
               ];
               home-manager.extraSpecialArgs = {
                 inherit host;
-                hyprshell = inputs.hyprshell;
-                hyprmon = inputs.hyprmon;
                 pkgs-unstable = pkgs-unstable.legacyPackages.${host.arch};
               };
             }
