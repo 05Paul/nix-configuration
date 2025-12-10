@@ -1,6 +1,7 @@
 { config, pkgs, ... }: 
 let
   inherit (config.customization) user;
+  inherit (config.customization) desktop;
 in
 {
   imports = [
@@ -10,6 +11,9 @@ in
   services.greetd = {
     enable = true;
     settings = {
+      terminal = {
+        vt = desktop.tty;
+      };
       default_session = {
         command = "${pkgs.greetd}/bin/agreety --cmd Hyprland";
         user = "${user.name}";
