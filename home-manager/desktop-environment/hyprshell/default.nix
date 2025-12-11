@@ -14,15 +14,19 @@ in
           modifier = "super";
           launcher = {
             max_items = 5;
+            show_when_empty = true;
             default_terminal = "kitty";
+            plugins.actions = {};
+            plugins.applications = {};
+            plugins.calc = {};
+            plugins.path = {};
+            plugins.terminal = {};
             plugins.websearch = {
                 engines = [{
                     name = "DuckDuckGo";
                     url = "https://duckduckgo.com/?q={}";
                     key = "g";
                 }];
-            };
-            plugins.path = {
             };
           };
         };
