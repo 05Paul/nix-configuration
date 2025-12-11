@@ -66,6 +66,8 @@
             "workspaces"
             "windowtitle"
             "kbinput"
+            "systray"
+            "volume"
           ];
 
           middle = [
@@ -73,7 +75,6 @@
           ];
 
           right = [
-            "volume"
           ] 
           ++ lib.optional host.features.wifi "network"
           ++
