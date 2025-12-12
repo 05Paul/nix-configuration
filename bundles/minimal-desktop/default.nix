@@ -10,6 +10,7 @@ in
     ../../nixos/features/nerdfont
     ../../nixos/features/pipewire
     ../../nixos/programs/bitwarden-desktop
+    ../../nixos/programs/localsend
     ../../nixos/programs/stylix
     ../../nixos/services/printing
   ];

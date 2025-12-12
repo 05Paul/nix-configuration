@@ -194,7 +194,7 @@ in
         systray = {
           background = "#${colors.base02}";
           border = "#${colors.base07}";
-          customIcon = "#${colors.base05}";
+          customIcon = "#${colors.base0E}";
         };
 
         volume = {
