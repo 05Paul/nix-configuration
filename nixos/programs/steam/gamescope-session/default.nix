@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 let
   inherit (config.customization) user;
+  inherit (config.customization) desktop;
+  inherit (config.customization) gamescope;
 in
 {
   imports = [
@@ -22,7 +24,7 @@ in
 
   environment.localBinInPath = true;
 
-  systemd.services."getty@tty3" = {
+  systemd.services."getty@tty${ builtins.toString gamescope.tty}" = {
     overrideStrategy = "asDropin";
     serviceConfig.ExecStart = [
       ""
@@ -62,8 +64,8 @@ in
 
   environment = {
     loginShellInit = ''
-      if [[ "$(tty)" = "/dev/tty3" ]]; then
-          gamescope-session; chvt 2; exit
+      if [[ "$(tty)" = "/dev/tty${ builtins.toString gamescope.tty}" ]]; then
+          gamescope-session; chvt ${ builtins.toString desktop.tty}; exit
       fi
     '';
   };
