@@ -25,9 +25,4 @@
     grub.enable = false;
     systemd-boot.enable = false;
   };
-
-  boot.kernelParams = [
-    "amd_iommu=on"
-    "iommu=pt"
-  ];
 }

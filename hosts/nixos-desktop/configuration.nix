@@ -27,6 +27,11 @@ in
       path: uuid(0f1c46b0-4adc-453b-b1fb-c2de14670107):/EFI/Microsoft/Boot/bootmgfw.efi
   '' ;
 
+  boot.kernelParams = [
+    "amd_iommu=on"
+    "iommu=pt"
+  ];
+
   home-manager.users."${user.name}".home = {
     stateVersion = "25.05";
   };

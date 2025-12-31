@@ -9,6 +9,10 @@ in
     ../../steam
   ];
 
+  environment.systemPackages = with pkgs; [
+    mangohud
+  ];
+
   boot.kernelPackages = pkgs.linuxPackages;
 
   programs = {
@@ -22,14 +26,30 @@ in
     };
   };
 
+  users.users."${user.name}".extraGroups = [ "input" "uinput" ];
   environment.localBinInPath = true;
+/*
+  services.getty.autologinUser = user.name;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      terminal.vt = 1;
+      default_session = {
+        command = "${pkgs.gamescope}/bin/gamescope -W 2560 -H 1440 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3";
+        user = user.name;
+      };
+    }
+    ;
+  };
+*/
 
   systemd.services."getty@tty${ builtins.toString gamescope.tty}" = {
     overrideStrategy = "asDropin";
     serviceConfig.ExecStart = [
       ""
       ''
-      @${pkgs.util-linux}/sbin/agetty agetty -o '-p -f -- \\u' --noclear --autologin ${user.name} %I TERM
+      @${pkgs.util-linux}/sbin/agetty agetty -o '-p -f -- \\u' --noclear --autologin ${user.name} %I $TERM
       ''
     ];
   };

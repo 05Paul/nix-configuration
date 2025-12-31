@@ -5,15 +5,21 @@ gamescopeArgs=(
     -W 2560
     -H 1440
     -f
+    -e
+    --expose-wayland
     --adaptive-sync # VRR support
     --hdr-enabled
-#    --mangoapp # performance overlay
+    --hdr-itm-enabled
+    --mangoapp # performance overlay
     --rt
+    --xwayland-count 2
     --steam
 )
+
 steamArgs=(
     -pipewire-dmabuf
-    -tenfoot
+    -gamepadui
+    -steamdeck
     -steamos3
 )
 mangoConfig=(
@@ -28,4 +34,4 @@ mangoVars=(
 )
 
 export "${mangoVars[@]}"
-exec gamescope "${gamescopeArgs[@]}" -- steam "${steamArgs[@]}"
+exec gamescope "${gamescopeArgs[@]}" -- steam "${steamArgs[@]}" > /dev/null 2>&1
