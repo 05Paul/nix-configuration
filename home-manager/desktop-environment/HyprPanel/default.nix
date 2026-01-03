@@ -33,6 +33,10 @@
         };
 
         customModules = {
+          hypridle = {
+            label = false;
+          };
+
           kbLayout = {
             leftClick = "hyprctl switchxkblayout all next";
             rightClick = "hyprctl switchxkblayout all prev";
@@ -79,6 +83,7 @@
           ++ lib.optional host.features.wifi "network"
           ++
           [
+            "hypridle"
             "bluetooth"
             "worldclock"
             "notifications"
