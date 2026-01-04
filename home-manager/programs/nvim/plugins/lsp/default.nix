@@ -144,6 +144,10 @@
         enable = true;
       };
 
+      svelte = {
+        enable = true;
+      };
+
       yamlls = {
         enable = true;
       };
