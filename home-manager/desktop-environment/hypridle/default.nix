@@ -16,7 +16,7 @@
       listener = [
         {
           timeout = 150;
-          on-timeout = "brightnessctl -s set 10";
+          on-timeout = "brightnessctl set 10";
           on-resume = "brightnessctl -r";
         }
 

@@ -30,6 +30,24 @@ in
     enable = true;
   };
 
+  services.ddccontrol = {
+    enable = true;
+  };
+
+
+
+  users = {
+    groups = {
+      plugdev = {};
+    };
+    users."${user.name}" = {
+      extraGroups = [
+        "i2c"
+        "plugdev"
+      ];
+    };
+  };
+
   services.logind = {
     settings.Login = {
       HandlePowerKey= "suspend";
@@ -205,7 +223,7 @@ in
 
           ", XF86AudioMute, Mute audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-          ", switch:on:Lid Switch, Set brightness to 0%, exec, brightnessctl -s set 0%"
+          ", switch:on:Lid Switch, Set brightness to 0%, exec, brightnessctl set 0%"
           ", switch:off:Lid Switch, Set brightness to 50%, exec, brightnessctl -r"
         ];
 
@@ -214,8 +232,8 @@ in
           ", XF86AudioRaiseVolume, Increase volume by 5%, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
           ", XF86AudioLowerVolume, Decrease volume by 5%, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 
-          ", XF86MonBrightnessUp, Increase brightness by 5%, exec, brightnessctl -s set +5%"
-          ", XF86MonBrightnessDown, Decrease brightness by 5%, exec, brightnessctl -s set 5%-"
+          ", XF86MonBrightnessUp, Increase brightness by 5%, exec, brightnessctl set +5%; brightnessctl -s"
+          ", XF86MonBrightnessDown, Decrease brightness by 5%, exec, brightnessctl set 5%-; brightnessctl -s"
         ];
 
         # +locked +long-press
