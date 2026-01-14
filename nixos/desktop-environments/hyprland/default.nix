@@ -1,7 +1,8 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, lib, ... }: 
 let
   inherit (config.customization) user;
   inherit (config.customization) desktop;
+  inherit (config.lib.stylix) colors;
 in
 {
   imports = [
@@ -161,6 +162,20 @@ in
           "float, center, class:floating"
         ];
 
+        group = {
+          groupbar = {
+            font_size = 18;
+            height = 20;
+            gradients = true;
+            gradient_rounding = 6;
+            indicator_height = 0;
+            text_color = lib.mkForce "rgba(${colors.base01}ff)";
+            text_color_inactive = lib.mkForce "rgba(${colors.base07}ff)";
+            "col.active" = lib.mkForce "rgba(${colors.base07}ee)";
+            "col.inactive" = lib.mkForce "rgba(${colors.base01}99)";
+          };
+        };
+
         bindd = [
           # General
           "$mainMod, B, Open Firefox, exec, firefox"
@@ -184,6 +199,7 @@ in
           "$mainMod, down, Move focus down, movefocus, d"
 
           # Workspace switch with: mainMod + [ 0-9 ]
+          "$mainMod, s, Toggle special workspace, togglespecialworkspace"
           "$mainMod, 1, Switch to workspace 1, workspace, 1"
           "$mainMod, 2, Switch to workspace 2, workspace, 2"
           "$mainMod, 3, Switch to workspace 3, workspace, 3"
@@ -196,6 +212,7 @@ in
           "$mainMod, 0, Switch to workspace 10, workspace, 10"
 
           # Move window to workspace with: mainMod Shift + [ 0-9 ]
+          "$mainMod SHIFT, s, Move to special workspace, movetoworkspace, special"
           "$mainMod SHIFT, 1, Move to workspace 1, movetoworkspace, 1"
           "$mainMod SHIFT, 2, Move to workspace 2, movetoworkspace, 2"
           "$mainMod SHIFT, 3, Move to workspace 3, movetoworkspace, 3"
@@ -212,6 +229,16 @@ in
 
           "$mainMod SHIFT, up, Move workspace to next monitor, movecurrentworkspacetomonitor, +1"
           "$mainMod SHIFT, down, Move workspace to previous monitor, movecurrentworkspacetomonitor, -1"
+
+          # groups
+          "$mainMod, G, Toggle group, togglegroup"
+          "$mainMod SHIFT, G, Move window out of group, moveoutofgroup"
+          "$mainMod, TAB, Cycle to next window in group, changegroupactive, f"
+          "$mainMod SHIFT, TAB, Cycle to previous window in group, changegroupactive, b"
+          "$mainMod SHIFT CTRL, left, Move into group left, moveintogroup, l"
+          "$mainMod SHIFT CTRL, right, Move into group right, moveintogroup, r"
+          "$mainMod SHIFT CTRL, up, Move into group up, moveintogroup, u"
+          "$mainMod SHIFT CTRL, down, Move into group down, moveintogroup, d"
         ];
 
         # +locked
