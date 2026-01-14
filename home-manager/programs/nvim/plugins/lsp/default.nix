@@ -148,6 +148,10 @@
         enable = true;
       };
 
+      ts_ls = {
+        enable = true;
+      };
+
       yamlls = {
         enable = true;
       };
