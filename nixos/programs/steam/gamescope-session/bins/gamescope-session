@@ -29,7 +29,7 @@ mangoConfig=(
     vram
 )
 mangoVars=(
-    MANGOHUD=1
+    MANGOHUD=0
     MANGOHUD_CONFIG="$(IFS=,; echo "${mangoConfig[*]}")"
 )
 

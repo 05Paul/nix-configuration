@@ -33,8 +33,30 @@ in
   services.ddccontrol = {
     enable = true;
   };
+  
+  boot = {
+    extraModulePackages = with config.boot.kernelPackages; [
+      ddcci-driver
+    ];
 
+    kernelModules = [
+      "ddcci"
+      "i2c-dev"
+    ];
 
+    kernelParams = [
+      "ddcci.enable_backlight=1"
+    ];
+  };
+
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
+
+  environment.systemPackages = with pkgs; [
+    ddcutil
+    brightnessctl
+  ];
 
   users = {
     groups = {
@@ -44,6 +66,7 @@ in
       extraGroups = [
         "i2c"
         "plugdev"
+        "video"
       ];
     };
   };

@@ -1,9 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home.packages = with pkgs; [
-    brightnessctl
-  ];
-
   services.hypridle = {
     enable = true;
     settings = {
