@@ -23,13 +23,14 @@ steamArgs=(
     -steamos3
 )
 mangoConfig=(
+    no_display
     cpu_temp
     gpu_temp
     ram
     vram
 )
 mangoVars=(
-    MANGOHUD=0
+    MANGOHUD=1
     MANGOHUD_CONFIG="$(IFS=,; echo "${mangoConfig[*]}")"
 )
 
