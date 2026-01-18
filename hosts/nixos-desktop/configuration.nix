@@ -14,6 +14,7 @@ in
       ../../bundles/hyprland-desktop
       ../../bundles/gaming
       ../../nixos/features/bootloader/limine/secureboot
+      ../../nixos/features/bluetooth-wakeup
       ../../nixos/programs/steam/gamescope-session
     ];
 
