@@ -14,6 +14,7 @@ in
       ../../bundles/hyprland-desktop
       ../../bundles/gaming
       ../../bundles/laptop
+      ../../bundles/studying
       ../../nixos/programs/flatpak/streamdeck
     ];
 

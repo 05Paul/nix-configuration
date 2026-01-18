@@ -110,6 +110,7 @@
           monitorSpecific = true;
           show_numbered = true;
           numbered_active_indicator = "highlight";
+          ignored = "-99";
         };
       };
 
