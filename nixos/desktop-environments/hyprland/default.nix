@@ -184,6 +184,7 @@ in
 
         windowrule = [
           "float, center, class:floating"
+          "tile, class:com.github.xournalpp.xournalpp"
         ];
 
         group = {
