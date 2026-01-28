@@ -11,7 +11,11 @@ in
     ../../nixos/features/unfree
   ];
 
-  home-manager.users."${user.name}".imports = [
-    ./home
-  ];
+  home-manager.users."${user.name}" = {
+    imports = [
+      ./home
+    ];
+
+    customization = config.customization;
+  };
 }

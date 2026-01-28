@@ -8,7 +8,6 @@
     ../../../home-manager/programs/nvim
     ../../../home-manager/programs/git
     ../../../home-manager/programs/git/credential-oauth
-    ../../../home-manager/programs/git/users/personal
     ../../../home-manager/programs/gpg
     ../../../options/user
   ];

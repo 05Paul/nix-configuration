@@ -20,6 +20,11 @@ in
 
   customization = {
     user.name = host.user;
+    git.users = {
+      personal = {
+        enable = true;
+      };
+    };
   };
 
   boot.loader.limine.extraEntries = ''

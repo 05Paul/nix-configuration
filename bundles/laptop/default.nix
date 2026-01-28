@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
    ../../nixos/features/bootloader/limine/secureboot

@@ -38,5 +38,29 @@
         '';
       };
     };
+
+    git.users = {
+      personal = {
+        enable = lib.mkEnableOption "enable personal user";
+        signingKey = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = ''
+            signing key for personal user
+          '';
+        };
+      };
+
+      uni = {
+        enable = lib.mkEnableOption "enable uni user";
+        signingKey = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = ''
+            signing key for uni user
+          '';
+        };
+      };
+    };
   };
 }

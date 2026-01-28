@@ -20,10 +20,23 @@ in
 
   customization = {
     user.name = host.user;
+    git.users = {
+      personal = {
+        enable = true;
+        signingKey = "749C 23E9 3F9E FCB6 5763  391D 65E5 55D7 F550 8260";
+      };
+      uni = {
+        enable = true;
+      };
+    };
   };
   
-  home-manager.users."${user.name}".home = {
-    stateVersion = "25.05";
+  home-manager.users."${user.name}" = { 
+    imports = [];
+
+    home = {
+      stateVersion = "25.05";
+    };
   };
   
   networking.hostName = host.hostname;
