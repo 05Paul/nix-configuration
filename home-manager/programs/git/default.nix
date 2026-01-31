@@ -22,7 +22,7 @@ in
         id = "! git-identity";
       };
       user = { 
-        useConfigOnly = gitUsers.personal.enable;
+        useConfigOnly = true;
       } // lib.optionalAttrs gitUsers.personal.enable {
         personal = {
           name = "Paul Skamrada";
