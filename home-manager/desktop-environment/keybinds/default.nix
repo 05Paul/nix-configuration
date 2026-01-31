@@ -8,4 +8,11 @@ in
     rofi
     jq
   ];
+
+  xdg.desktopEntries.keybinds = {
+    name = "Keybinds";
+    comment = "Show keybinds";
+    exec = "keybinds";
+    terminal = false;
+  };
 }
