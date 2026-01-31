@@ -237,7 +237,7 @@ in
           "$mainMod, 0, Switch to workspace 10, workspace, 10"
 
           # Move window to workspace with: mainMod Shift + [ 0-9 ]
-          "$mainMod SHIFT, s, Move to special workspace, movetoworkspace, special"
+          "$mainMod SHIFT, S, Move to special workspace, movetoworkspace, special"
           "$mainMod SHIFT, 1, Move to workspace 1, movetoworkspace, 1"
           "$mainMod SHIFT, 2, Move to workspace 2, movetoworkspace, 2"
           "$mainMod SHIFT, 3, Move to workspace 3, movetoworkspace, 3"

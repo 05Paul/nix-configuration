@@ -2,6 +2,7 @@
 {
   imports = [
     ./theme
+    ../keybinds
   ];
 
   home.packages = with pkgs; [
@@ -131,19 +132,21 @@
               };
 
               shortcut2 = {
-                command = "rofi -show drun";
-                icon = "";
-                tooltip = "Search Apps";
+                command = "toggle_osk";
+                icon = "󰌌";
+                tooltip = "Toggle OSK";
               };
 
               shortcut3 = {
-                command = "hyprfocus discord || discord";
+                command = "keybinds";
+                icon = "󰞋";
+                tooltip = "Keybinds";
               };
 
               shortcut4 = {
-                command = "hyprfocus Spotify || spotify";
-                icon = "";
-                tooltip = "Spotify";
+                command = "xournalpp";
+                icon = "󰠮";
+                tooltip = "Xournal++";
               };
             };
 

@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+# Convert Hyprland modmask to readable modifier names
+modmask_to_mods() {
+    local mask=$1
+    local mods=()
+
+    (( mask & 64 ))  && mods+=("")
+    (( mask & 1 ))   && mods+=("󰘶")
+    (( mask & 2 ))   && mods+=("󰘲")
+    (( mask & 4 ))   && mods+=("󰘴")
+    (( mask & 8 ))   && mods+=("ALT")
+
+    if [ ${#mods[@]} -eq 0 ]; then
+        echo ""
+    else
+        echo "$(IFS=" + "; echo "${mods[*]}")"
+    fi
+}
+
+key_to_icon() {
+    local key="${1,,}"
+
+    case "$key" in
+        left) echo "←" ;;
+        right) echo "→" ;;
+        up) echo "↑" ;;
+        down) echo "↓" ;;
+
+        return) echo "⏎" ;;
+        escape) echo "󱊷" ;;
+        space) echo "󱁐" ;;
+        tab) echo "⇥" ;;
+        backspace) echo "⌫" ;;
+        delete) echo "⌦" ;;
+        home) echo "⇱" ;;
+        end) echo "⇲" ;;
+        page_up) echo "" ;;
+        page_down) echo "" ;;
+
+        xf86audiomute) echo "󰖁" ;;
+        xf86audiolowervolume) echo "󰕾" ;;
+        xf86audioraisevolume) echo "󰕿" ;;
+        xf86monbrightnessup) echo "󰃠" ;;
+        xf86monbrightnessdown) echo "󰃜" ;;
+        xf86audioplay) echo "󰐎" ;;
+        xf86audioprev) echo "󰒮" ;;
+        xf86audionext) echo "󰒭" ;;
+
+        f1) echo "󱊫" ;;
+        f2) echo "󱊬" ;;
+        f3) echo "󱊭" ;;
+        f4) echo "󱊮" ;;
+        f5) echo "󱊯" ;;
+        f6) echo "󱊰" ;;
+        f7) echo "󱊱" ;;
+        f8) echo "󱊲" ;;
+        f9) echo "󱊳" ;;
+        f10) echo "󱊴" ;;
+        f11) echo "󱊵" ;;
+        f12) echo "󱊶" ;;
+
+        print) echo "󰐪" ;;
+
+        "switch:on:lid switch") echo "Lid " ;;
+        "switch:off:lid switch") echo "Lid " ;;
+
+        *)
+            echo "$1"
+            ;;
+    esac
+}
+
+
+hyprctl binds -j | jq -r '.[] | @base64' | while read -r bind; do
+    _jq() {
+        echo "$bind" | base64 --decode | jq -r "$1"
+    }
+
+    modmask=$(_jq '.modmask')
+    key=$(_jq '.key')
+    key=$(key_to_icon "$key")
+
+    description=$(_jq '.description // ""')
+
+    # bind modes / flags
+    flags=()
+    [ "$(_jq '.locked')" = "true" ]   && flags+=("")
+    [ "$(_jq '.repeat')" = "true" ]   && flags+=("")
+    [ "$(_jq '.release')" = "true" ]  && flags+=("")
+    [ "$(_jq '.longPress')" = "true" ]  && flags+=("")
+
+
+    mode=$(IFS=" "; echo "${flags[*]:-}")
+
+    mods=$(modmask_to_mods "$modmask")
+
+    combo=""
+    if [ ! -z "$mods"  ] && [ "$mods" != " " ]; then
+        combo+="${mods} + "
+    fi
+    combo+="$key"
+
+    # TAB-separated columns for rofi
+    printf "%s\t%s\t%s\n" "$combo" "$mode" "$description"
+done | rofi -dmenu \
+    -p "Keybinds" \
+    -columns 3 \
+    -markup-rows
+
