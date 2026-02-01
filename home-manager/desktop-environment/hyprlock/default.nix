@@ -1,6 +1,7 @@
-{ pkgs, lib, config, host, ... }:
+{ pkgs, lib, config, ... }:
 let
   inherit (config.lib.stylix) colors;
+  inherit (config.customization) features;
   utils = import ./utils.nix { inherit lib; };
 in
 {
@@ -42,7 +43,7 @@ in
       };
 
       auth = {
-        "fingerprint:enabled" = host.features.fingerprint;
+        "fingerprint:enabled" = features.fingerprint;
       };
 
       input-field = {

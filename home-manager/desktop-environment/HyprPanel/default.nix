@@ -1,4 +1,7 @@
-{ pkgs, lib, host, ... }:
+{ pkgs, lib, config, ... }:
+let
+  inherit (config.customization) features;
+in
 {
   imports = [
     ./theme
@@ -81,7 +84,7 @@
 
           right = [
           ] 
-          ++ lib.optional host.features.wifi "network"
+          ++ lib.optional features.wifi "network"
           ++
           [
             "hypridle"
@@ -89,7 +92,7 @@
             "worldclock"
             "notifications"
           ]
-          ++ lib.optional host.features.battery "battery"
+          ++ lib.optional features.battery "battery"
           ;
 
         };

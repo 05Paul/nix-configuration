@@ -19,6 +19,20 @@
       };
     };
 
+    hostname = lib.mkOption {
+      type = lib.types.str;
+      default = "nixos";
+      description = ''
+        hostname
+      '';
+    };
+
+    features = {
+      battery = lib.mkEnableOption "enable battery features";
+      fingerprint = lib.mkEnableOption "enable fingerprint features";
+      wifi = lib.mkEnableOption "enable wifi features";
+    };
+
     desktop = {
      tty = lib.mkOption {
         type = lib.types.int;

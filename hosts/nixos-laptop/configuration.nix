@@ -2,9 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, host, ... }:
+{ config, ... }:
 let 
   inherit (config.customization) user;
+  inherit (config.customization) hostname;
 in
 {
   imports =
@@ -19,7 +20,13 @@ in
     ];
 
   customization = {
-    user.name = host.user;
+    user.name = "paul";
+    hostname = "nixos-laptop";
+    features = {
+      battery = true;
+      fingerprint = true;
+      wifi = true;
+    };
     git.users = {
       personal = {
         enable = true;
@@ -39,7 +46,7 @@ in
     };
   };
   
-  networking.hostName = host.hostname;
+  networking.hostName = hostname;
 
   # NEVER CHANGE
   system.stateVersion = "25.05";

@@ -1,10 +1,5 @@
 # TODOs
-+ use options for desktop environments, making tty configurable
-+ make steam-gamescope session configurable, to set which tty it returns to
 + try changig themes on the fly using specialistations + options
-+ convert host value into options
-+ theme Hyprpanel correctly see [Downloads](~/Downloads/catppuccin_mocha.json)
-+ move custom Hyprpanel module to home manager config
 
 ## DEs + Gamescope
 ```nix

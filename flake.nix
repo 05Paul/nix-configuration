@@ -37,29 +37,28 @@
 
   outputs = { self, ... }@inputs:
     let
-      hosts = import ./config/hosts.nix;
-
+      x86 = "x86_64-linux";
       mkNixOSConfiguration = 
         {
-          host,
+          arch,
+          dir,
           nixpkgs,
           home-manager,
           pkgs-unstable,
           modules ? [],
         }:
         nixpkgs.lib.nixosSystem {
-          system = host.arch;
+          system = arch;
           specialArgs = let
-            system = host.arch;
+            system = arch;
           in {
-            inherit host;
             pkgs-un = import pkgs-unstable {
               inherit system;
               config.allowUnfree = true;
             };
           };
           modules = [
-            ./hosts/${host.dir}/configuration.nix
+            ./hosts/${dir}/configuration.nix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
@@ -69,8 +68,7 @@
                 inputs.nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
-                inherit host;
-                pkgs-unstable = pkgs-unstable.legacyPackages.${host.arch};
+                pkgs-unstable = pkgs-unstable.legacyPackages.${arch};
               };
             }
           ] ++ modules;
@@ -79,21 +77,24 @@
 
     {
       nixosConfigurations.nixos = mkNixOSConfiguration {
-        host = hosts.vm;
+        arch = x86;
+        dir = "nixos-vm";
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
       };
       
       nixosConfigurations.nixos-desktop = mkNixOSConfiguration {
-        host = hosts.desktop;
+        arch = x86;
+        dir = "nixos-desktop";
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-laptop = mkNixOSConfiguration {
-        host = hosts.laptop;
+        arch = x86;
+        dir = "nixos-laptop";
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
