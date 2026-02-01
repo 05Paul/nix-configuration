@@ -2,6 +2,7 @@
 let
   inherit (config.customization) user;
   inherit (config.customization) desktop;
+  inherit (config.customization) gamescope;
   inherit (config.lib.stylix) colors;
 in
 {
@@ -103,6 +104,7 @@ in
       ../../../home-manager/desktop-environment/screenshot-scripts
       ../../../home-manager/desktop-environment/wvkbd
       ../../../home-manager/programs/kitty
+      ../../../home-manager/programs/antimicrox
     ];
 
     home.packages = with pkgs; [
@@ -133,7 +135,7 @@ in
           "hyprpanel"
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
-        ];
+        ] ++ lib.optional config.programs.steam.gamescopeSession.enable "antimicrox --tray --profile ~/.config/antimicrox/default.gamecontroller.amgp";
 
         general =  {
           gaps_out = 5;
@@ -292,7 +294,7 @@ in
         binddlo = [
           ", XF86AudioNext, Next song, exec, playerctl next"
           ", XF86AudioPrev, Previous song, exec, playerctl previous"
-        ];
+        ] ++ lib.optional config.programs.steam.gamescopeSession.enable "$mainMod, C, Switch to gamescope session, exec, chvt ${ builtins.toString gamescope.tty }";
       };
     };
   };

@@ -29,7 +29,14 @@ in
   users.users."${user.name}".extraGroups = [ "input" "uinput" ];
   environment.localBinInPath = true;
 
-  systemd.services."getty@tty${ builtins.toString gamescope.tty}" = {
+  security.wrappers.chvt = {
+    owner = "root";
+    group = "root";
+    setuid = true;
+    source = "${pkgs.kbd}/bin/chvt";
+  };
+
+  systemd.services."getty@tty${ builtins.toString gamescope.tty }" = {
     overrideStrategy = "asDropin";
     serviceConfig.ExecStart = [
       ""
@@ -64,6 +71,13 @@ in
     home.file.".local/bin/jupiter-biosupdate" = {
       source = ./bins/jupiter-biosupdate;
       executable = true;
+    };
+
+    xdg.desktopEntries.switchToGamescope = {
+      name = "Switch to Gamescope";
+      comment = "Switch to Steam in gamescope-session";
+      exec = "/run/wrappers/bin/chvt ${ builtins.toString gamescope.tty }";
+      terminal = false;
     };
   };
 
