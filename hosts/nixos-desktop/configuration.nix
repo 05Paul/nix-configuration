@@ -16,11 +16,13 @@ in
       ../../bundles/gaming
       ../../nixos/features/bootloader/limine/secureboot
       ../../nixos/features/bluetooth-wakeup
+      ../../nixos/programs/flatpak/hytale
       ../../nixos/programs/steam/gamescope-session
     ];
 
   customization = {
     user.name = "paul";
+    hostname = "nixos-desktop";
     git.users = {
       personal = {
         enable = true;

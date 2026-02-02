@@ -120,6 +120,13 @@ in
       enable = true;
     };
 
+    xdg.portal = {
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
