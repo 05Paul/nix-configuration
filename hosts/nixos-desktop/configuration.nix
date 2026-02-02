@@ -14,6 +14,7 @@ in
       ../../bundles/development
       ../../bundles/hyprland-desktop
       ../../bundles/gaming
+      ../../bundles/multimedia
       ../../nixos/features/bootloader/limine/secureboot
       ../../nixos/features/bluetooth-wakeup
       ../../nixos/programs/flatpak/hytale
