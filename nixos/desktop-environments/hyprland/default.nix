@@ -103,8 +103,9 @@ in
       ../../../home-manager/desktop-environment/satty
       ../../../home-manager/desktop-environment/screenshot-scripts
       ../../../home-manager/desktop-environment/wvkbd
-      ../../../home-manager/programs/kitty
       ../../../home-manager/programs/antimicrox
+      ../../../home-manager/programs/kitty
+      ../../../home-manager/programs/resources
     ];
 
     home.packages = with pkgs; [
