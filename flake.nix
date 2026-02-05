@@ -33,6 +33,10 @@
       url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     };
 
+    spicetify = {
+      url = "github:Gerg-L/spicetify-nix";
+    };
+
   };
 
   outputs = { self, ... }@inputs:
@@ -66,9 +70,11 @@
               home-manager.useGlobalPkgs = true;
               home-manager.sharedModules = [
                 inputs.nixvim.homeModules.nixvim
+                inputs.spicetify.homeManagerModules.spicetify
               ];
               home-manager.extraSpecialArgs = {
                 pkgs-unstable = pkgs-unstable.legacyPackages.${arch};
+                spicetify = inputs.spicetify;
               };
             }
           ] ++ modules;
