@@ -34,7 +34,7 @@ in
   boot.loader.limine.extraEntries = ''
     /Windows
       protocol: efi
-      path: uuid(0f1c46b0-4adc-453b-b1fb-c2de14670107):/EFI/Microsoft/Boot/bootmgfw.efi
+      path: uuid(a5df6f67-db5e-46dc-9aec-c0728a173973):/EFI/Microsoft/Boot/bootmgfw.efi
   '' ;
 
   boot.kernelParams = [
