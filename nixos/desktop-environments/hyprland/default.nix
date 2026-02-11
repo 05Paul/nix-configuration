@@ -135,7 +135,7 @@ in
           disable_logs = false;
         };
 
-        "$terminal" = "kitty";
+        "$terminal" = "alacritty";
         "$mainMod" = "SUPER";
 
         exec-once = [
