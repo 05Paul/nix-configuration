@@ -20,11 +20,16 @@ in
   users.users."${user.name}" = {
     isNormalUser = true;
     description = user.description;
-    extraGroups = 
-      [ 
-        "networkmanager"
-        "wheel"
-      ];
+
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+
+    openssh.authorizedKeys.keyFiles = [
+      ../../keys/nixos-laptop/id_ed25519.pub
+    ];
+
     packages = with pkgs; [];
   };
 
@@ -35,4 +40,9 @@ in
 
   services.openssh.enable = true;
   networking.firewall.enable = false;
+
+  virtualisation.incus = {
+    enable = true;
+    ui.enable = true;
+  };
 }
