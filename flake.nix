@@ -108,5 +108,29 @@
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };
+
+      nixosConfigurations.nixos-compute-1 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-compute-1";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
+
+      nixosConfigurations.nixos-compute-2 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-compute-2";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
+
+      nixosConfigurations.nixos-compute-3 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-compute-3";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
     };
 }
