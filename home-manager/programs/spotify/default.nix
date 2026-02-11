@@ -1,6 +1,6 @@
 { pkgs, spicetify, ... }:
 let
-  spicePkgs = spicetify.legacyPackages.${pkgs.system};
+  spicePkgs = spicetify.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   programs.spicetify = {
