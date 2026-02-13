@@ -132,5 +132,29 @@
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
       };
+
+      nixosConfigurations.nixos-proxy-1 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-proxy-1";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
+
+      nixosConfigurations.nixos-proxy-2 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-proxy-2";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
+
+      nixosConfigurations.nixos-proxy-3 = mkNixOSConfiguration {
+        arch = x86;
+        dir = "nixos-proxy-3";
+        nixpkgs = inputs.nixpkgs;
+        pkgs-unstable = inputs.nixpkgs-unstable;
+        home-manager = inputs.home-manager;
+      };
     };
 }
