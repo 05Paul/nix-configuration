@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../nixos/features/bootloader/systemd-boot
     ../minimal-server
   ];
 
