@@ -2,6 +2,7 @@
 {
   imports = [
     ../minimal-server
+    ../../nixos/features/bootloader/systemd-boot
   ];
 
   networking = {
