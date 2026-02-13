@@ -15,7 +15,7 @@
 
   customization = {
     user.name = "nixos";
-    hostname = "proxy-2";
+    hostname = "nixos-proxy-2";
   };
 
   networking = {
