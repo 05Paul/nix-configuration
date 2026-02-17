@@ -38,7 +38,7 @@
     };
   };
 
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 /*
   virtualisation.oci-containers.containers.dockge = {
     image = "louislam/dockge:1";
