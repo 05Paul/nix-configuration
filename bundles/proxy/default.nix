@@ -21,6 +21,12 @@
       };
       linkConfig.RequiredForOnline = "routable";
     };
+
+    wait-online = {
+      enable = true;
+      anyInterface = true;
+      # timeout = 10;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -38,8 +44,8 @@
     };
   };
 
-  #virtualisation.docker.enable = true;
-/*
+  virtualisation.docker.enable = true;
+
   virtualisation.oci-containers.containers.dockge = {
     image = "louislam/dockge:1";
     autoStart = true;
@@ -57,5 +63,5 @@
     environment = {
       DOCKGE_STACKS_DIR = "/opt/stacks";
     };
-  }; */
+  };
 }
