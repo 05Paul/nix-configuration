@@ -14,7 +14,7 @@
 
   customization = {
     user.name = "nixos";
-    hostname = "nixos-proxy-3";
+    hostname = "nixos-dockge";
   };
 
   system.stateVersion = "25.11"; # Did you read the comment?
