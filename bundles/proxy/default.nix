@@ -30,10 +30,16 @@
 
   services.traefik = {
     enable = true;
+
+    staticConfigOptions = {
+      api = {
+        insecure = true;
+      };
+    };
   };
 
   virtualisation.docker.enable = true;
-
+/*
   virtualisation.oci-containers.containers.dockge = {
     image = "louislam/dockge:1";
     autoStart = true;
@@ -51,5 +57,5 @@
     environment = {
       DOCKGE_STACKS_DIR = "/opt/stacks";
     };
-  };
+  }; */
 }
