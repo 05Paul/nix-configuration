@@ -42,6 +42,24 @@
         insecure = true;
       };
 
+      certificatesResolvers = {
+        letsencrypt.acme = {
+          email = "pl.skamrada+letsencrypt@gmail.com";
+          storage = "/var/lib/traefik/acme.json";
+          httpChallenge.entryPoint = "web";
+        };
+      };
+
+      entryPoints = {
+        web = {
+          address = ":80";
+        };
+
+        websecure = {
+          address = ":443";
+        };
+      };
+
       providers = {
         docker = {};
       };
@@ -68,6 +86,14 @@
       "./data:/app/data"
       "/opt/stacks:/opt/stacks"
     ];
+
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.http.routers.dockge.rule" = "Host(dockge.skamrada.dev)";
+      "traefik.http.routers.dockge.entrypoints" = "websecure";
+      "traefik.http.routers.dockge.tls" = "true";
+      "traefik.http.routers.dockge.loadbalancer.server.port" = "5001";
+    };
 
     environment = {
       DOCKGE_STACKS_DIR = "/opt/stacks";
