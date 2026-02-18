@@ -25,7 +25,7 @@
     wait-online = {
       enable = true;
       anyInterface = true;
-      # timeout = 10;
+      timeout = 10;
     };
   };
 
@@ -41,6 +41,10 @@
       api = {
         insecure = true;
       };
+    };
+
+    providers = {
+      docker = {};
     };
   };
 
