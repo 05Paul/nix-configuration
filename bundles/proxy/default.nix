@@ -48,6 +48,10 @@
     };
   };
 
+  users.users.traefik.extraGroups = [
+    "docker"
+  ];
+
   virtualisation.docker.enable = true;
   virtualisation.oci-containers.backend = "docker";
 
