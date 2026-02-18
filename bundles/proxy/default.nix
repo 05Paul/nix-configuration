@@ -41,10 +41,10 @@
       api = {
         insecure = true;
       };
-    };
 
-    providers = {
-      docker = {};
+      providers = {
+        docker = {};
+      };
     };
   };
 
