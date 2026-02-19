@@ -133,9 +133,9 @@
         home-manager = inputs.home-manager;
       };
 
-      nixosConfigurations.nixos-proxy-1 = mkNixOSConfiguration {
+      nixosConfigurations.nixos-wings = mkNixOSConfiguration {
         arch = x86;
-        dir = "nixos-proxy-1";
+        dir = "nixos-wings";
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;

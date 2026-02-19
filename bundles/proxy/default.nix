@@ -1,38 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
-    ../minimal-server
-    ../../nixos/features/bootloader/systemd-boot
+    ../incus-vm
   ];
-
-  networking = {
-    dhcpcd.enable = false;
-    useDHCP = false;
-    useHostResolvConf = false;
-  };
-
-  systemd.network = {
-    enable = true;
-    networks."50-eth0" = {
-      matchConfig.Name = "eth0";
-      networkConfig = {
-        DHCP = "ipv4";
-        IPv6AcceptRA = true;
-      };
-      linkConfig.RequiredForOnline = "routable";
-    };
-
-    wait-online = {
-      enable = true;
-      anyInterface = true;
-      timeout = 10;
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-  ];
-
-  networking.firewall.enable = false;
 
   services.traefik = {
     enable = true;
@@ -71,7 +41,6 @@
         middlewares = {
           lan-only = {
             ipAllowList.sourceRange = [
-              "0.0.0.0/0" 
               "172.16.0.0/16"
               "172.31.0.0/16"
               "192.168.8.0/24"
