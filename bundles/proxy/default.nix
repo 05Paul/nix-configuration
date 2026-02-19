@@ -64,6 +64,36 @@
         docker = {};
       };
     };
+
+    dynamicConfigOptions = {
+      http = {
+        routers = {
+          router = {
+            rule = "Host(`router.skamrada.dev`)";
+            entryPoints = [
+              "websecure"
+            ];
+            service = "router";
+            tls = {
+              certResolver = "letsencrypt";
+            };
+
+          };
+        };
+
+        services = {
+          router.loadBalancer = {
+            servers = [
+              {
+                url = "http://192.168.8.1:80";
+              }
+            ];
+
+            passHostHeader = true;
+          };
+        };
+      };
+    };
   };
 
   users.users.traefik.extraGroups = [
