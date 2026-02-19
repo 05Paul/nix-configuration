@@ -69,7 +69,7 @@
       http = {
         middlewares = {
           lan-only = {
-            ipWhiteList.sourceRange = [
+            ipAllowList.sourceRange = [
               "172.16.0.0/16"
               "172.31.0.0/16"
               "192.168.8.0/24"
