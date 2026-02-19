@@ -67,12 +67,27 @@
 
     dynamicConfigOptions = {
       http = {
+        middlewares = {
+          lan-only = {
+            ipWhiteList = [
+              "172.16.0.0/16"
+              "172.31.0.0/16"
+              "192.168.8.1/24"
+            ];
+          };
+        };
+
         routers = {
           router = {
-            rule = "Host(`router.internal`)";
+            rule = "Host(`router.skamrada.dev`)";
             entryPoints = [
               "websecure"
             ];
+
+            middlewares = [
+              "lan-only"
+            ];
+
             service = "router";
             tls = {
               certResolver = "letsencrypt";
