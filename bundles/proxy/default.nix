@@ -71,6 +71,7 @@
         middlewares = {
           lan-only = {
             ipAllowList.sourceRange = [
+              "0.0.0.0/0" 
               "172.16.0.0/16"
               "172.31.0.0/16"
               "192.168.8.0/24"
