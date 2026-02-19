@@ -29,8 +29,8 @@
 
     environment = {
       TZ = "UTC";
-      WINGS_UID = 988;
-      WINGS_GID = 988;
+      WINGS_UID = "988";
+      WINGS_GID = "988";
       WINGS_USERNAME = "pterodactyl";
     };
   };
