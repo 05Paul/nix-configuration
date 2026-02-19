@@ -92,7 +92,6 @@
       "traefik.http.routers.dockge.rule" = "Host(dockge.skamrada.dev)";
       "traefik.http.routers.dockge.entrypoints" = "websecure";
       "traefik.http.routers.dockge.tls" = "true";
-      "traefik.http.routers.dockge.loadbalancer.server.port" = "5001";
     };
 
     environment = {
