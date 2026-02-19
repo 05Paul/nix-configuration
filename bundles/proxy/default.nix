@@ -69,7 +69,7 @@
       http = {
         routers = {
           router = {
-            rule = "Host(`router.skamrada.dev`)";
+            rule = "Host(`router.internal`)";
             entryPoints = [
               "websecure"
             ];

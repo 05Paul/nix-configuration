@@ -149,9 +149,9 @@
         home-manager = inputs.home-manager;
       };
 
-      nixosConfigurations.nixos-proxy-3 = mkNixOSConfiguration {
+      nixosConfigurations.nixos-dockge = mkNixOSConfiguration {
         arch = x86;
-        dir = "nixos-proxy-3";
+        dir = "nixos-dockge";
         nixpkgs = inputs.nixpkgs;
         pkgs-unstable = inputs.nixpkgs-unstable;
         home-manager = inputs.home-manager;
