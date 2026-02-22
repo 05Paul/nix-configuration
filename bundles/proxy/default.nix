@@ -49,17 +49,13 @@
         };
 
         routers = {
-          router = {
-            rule = "Host(`router.skamrada.dev`)";
+          wings = {
+            rule = "Host(`wings.skamrada.dev`)";
             entryPoints = [
               "websecure"
             ];
 
-            middlewares = [
-              "lan-only"
-            ];
-
-            service = "router";
+            service = "wings";
             tls = {
               certResolver = "letsencrypt";
             };
@@ -68,10 +64,10 @@
         };
 
         services = {
-          router.loadBalancer = {
+          wings.loadBalancer = {
             servers = [
               {
-                url = "http://192.168.8.1:80";
+                url = "http://172.16.0.101:8080";
               }
             ];
 
