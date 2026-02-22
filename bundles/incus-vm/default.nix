@@ -30,6 +30,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    unixtools.netstat
   ];
 
   networking.firewall.enable = false;

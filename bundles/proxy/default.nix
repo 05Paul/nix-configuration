@@ -67,7 +67,7 @@
           wings.loadBalancer = {
             servers = [
               {
-                url = "http://172.16.0.101:8080";
+                url = "http://172.16.0.101";
               }
             ];
 
