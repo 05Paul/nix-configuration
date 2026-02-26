@@ -83,6 +83,29 @@
           };
         };
       };
+
+      tcp = {
+        routers = {
+          wings-sftp = {
+            rule = "HostSNI(`wings.skamrada.dev`)";
+            entryPoints = [
+              "wings-sftp"
+            ];
+
+            service = "wings-sftp";
+          };
+        };
+
+        services = {
+          wings-sftp.loadBalancer = {
+            servers = [
+              {
+                address = "172.16.0.101:2022";
+              }
+            ];
+          };
+        };
+      };
     };
   };
 
