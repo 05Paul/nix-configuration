@@ -87,7 +87,7 @@
       tcp = {
         routers = {
           wings-sftp = {
-            rule = "HostSNI(`wings.skamrada.dev`)";
+            rule = "HostSNI(`*`)";
             entryPoints = [
               "wings-sftp"
             ];
