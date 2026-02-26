@@ -31,7 +31,7 @@
         };
 
         wings = {
-          address = ":8443";
+          address = ":8444";
         };
 
         wings-sftp = {
