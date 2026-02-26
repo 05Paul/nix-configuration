@@ -29,6 +29,14 @@
         websecure = {
           address = ":443";
         };
+
+        wings = {
+          address = ":8443";
+        };
+
+        wings-sftp = {
+          address = ":2022";
+        };
       };
 
       providers = {
@@ -52,7 +60,7 @@
           wings = {
             rule = "Host(`wings.skamrada.dev`)";
             entryPoints = [
-              "websecure"
+              "wings"
             ];
 
             service = "wings";
@@ -67,7 +75,7 @@
           wings.loadBalancer = {
             servers = [
               {
-                url = "http://172.16.0.101";
+                url = "http://172.16.0.101:8080";
               }
             ];
 
