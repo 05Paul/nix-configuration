@@ -7,31 +7,22 @@
   virtualisation.docker.enable = true;
   virtualisation.oci-containers.backend = "docker";
 
-  virtualisation.oci-containers.containers.wings = {
-    image = "ghcr.io/pterodactyl/wings:latest";
+  virtualisation.oci-containers.containers.dockge = {
+    image = "louislam/dockge:1";
     autoStart = true;
 
     ports = [
-      "8080:8080"
-      "2022:2022"
+      "5001:5001"
     ];
 
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock"
-      "/var/lib/docker/containers/:/var/lib/docker/containers/"
-      "/etc/pterodactyl/:/etc/pterodactyl/"
-      "/var/lib/pterodactyl/:/var/lib/pterodactyl/"
-      "/var/log/pterodactyl/:/var/log/pterodactyl/"
-      "/tmp/pterodactyl/:/tmp/pterodactyl/"
-      "/etc/ssl/certs:/etc/ssl/certs:ro"
-	  "/run/wings:/run/wings"
+      "./data:/app/data"
+      "/opt/stacks:/opt/stacks"
     ];
 
     environment = {
-      TZ = "UTC";
-      WINGS_UID = "988";
-      WINGS_GID = "988";
-      WINGS_USERNAME = "pterodactyl";
+      DOCKGE_STACKS_DIR = "/opt/stacks";
     };
   };
 
