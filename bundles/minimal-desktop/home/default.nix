@@ -1,4 +1,7 @@
-{ ... }:
+{ config, ... }:
+let
+  inherit (config.customization) user;
+in
 {
   imports = [
     ../../../home-manager/programs/alacritty
@@ -18,4 +21,8 @@
     ../../../home-manager/programs/zellij
     ../../../home-manager/programs/zoxide
   ];
+
+  home.shellAliases = {
+    nrs = "sudo nixos-rebuild switch --flake /home/${user.name}/configuration"; 
+  };
 }
