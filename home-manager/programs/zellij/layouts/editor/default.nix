@@ -67,6 +67,10 @@ in
       keybinds {
           locked {
               bind "Insert" { GoToNextTab; }
+              bind "Alt t" { NewTab; }
+              bind "Alt n" { FocusNextPane; }
+              bind "Alt p" { NewPane; }
+              bind "Alt x" { CloseFocus; }
           }
 
           shared_except "locked" {
