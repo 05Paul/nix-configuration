@@ -60,6 +60,7 @@ in
             tz = [
               "Europe/Vienna"
             ];
+            rightClick = "thunderbird -calendar";
           };
         };
 
