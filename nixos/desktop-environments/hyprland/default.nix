@@ -169,7 +169,7 @@ in
         };
 
         monitor = [
-          ", preferred, auto, 1, mirror, DP-1"
+          ", preferred, auto, 1, mirror, eDP-1"
           "eDP-1, 2256x1504@60, 0x0, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAPN8HB88, 2560x1440@144, 2256x-1440, 1"
           "desc:LG Electronics LG ULTRAGEAR 306MAVD8HB87, 2560x1440@144, -304x-1440, 1"
