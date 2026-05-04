@@ -13,6 +13,7 @@ in
     ../../nixos/programs/localsend
     ../../nixos/programs/stylix
     ../../nixos/services/printing
+    ../../nixos/services/scanning
   ];
 
   home-manager.users."${user.name}".imports = [
