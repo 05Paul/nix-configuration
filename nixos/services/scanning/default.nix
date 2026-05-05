@@ -10,6 +10,15 @@ in
     ];
   };
 
+  services.udev.packages = [
+    pkgs.sane-airscan
+  ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
+
   users.users."${user.name}" = {
     packages = [
       pkgs.simple-scan
