@@ -219,7 +219,7 @@ in
           "$mainMod, P, Open hyprmon, exec, pkill hyprmon || kitty --class floating hyprmon"
           "$mainMod, N, Open network-settings, exec, pkill nmtui || kitty --class floating nmtui"
           "$mainMod, Q, Log out, exit"
-          "$mainMod, R, Reload Panel, exec, pkill hyprpanel; hyprpanel& systemctl --user restart hyprshell"
+          "$mainMod, R, Reload Panel, exec, pkill hyprpanel -9; hyprpanel& systemctl --user restart hyprshell"
           "$mainMod, T, Terminal, exec, $terminal"
           "$mainMod, V, Clipboard, exec, clipboard"
           "$mainMod, page_up, Fullscreen, fullscreen"
