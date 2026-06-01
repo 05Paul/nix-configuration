@@ -5,7 +5,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.stable
+    wineWow64Packages.stable
   ];
 
   services.flatpak.packages = [

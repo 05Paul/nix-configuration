@@ -107,7 +107,7 @@
       };
 
       htmx = {
-        enable = true;
+        enable = false;
       };
 
       jdtls = {

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat <<< $(jq ".workspace.library = [\"$(nix eval --raw nixpkgs\#hyprland)/share/hypr/stubs\"]" .luarc.json) > .luarc.json

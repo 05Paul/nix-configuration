@@ -1,6 +1,6 @@
 { ... }:
 {
   programs.nixvim.plugins.transparent = {
-    enable = true;
+    enable = false;
   };
 }

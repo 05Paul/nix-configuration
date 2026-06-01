@@ -9,7 +9,7 @@ in
     ../../nixos/features/bluetooth
     ../../nixos/features/nerdfont
     ../../nixos/features/pipewire
-    ../../nixos/programs/bitwarden-desktop
+    # ../../nixos/programs/bitwarden-desktop Outdated Electron version
     ../../nixos/programs/localsend
     ../../nixos/programs/stylix
     ../../nixos/services/printing

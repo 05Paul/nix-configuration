@@ -1,5 +1,7 @@
 # TODOs
 + try changig themes on the fly using specialistations + options
++ Fix stylix
++ migrate from HyprPanel to wayle
 
 ## DEs + Gamescope
 ```nix
@@ -22,4 +24,3 @@ desktop-environments.steamos = {
 ```
 
 ## Themes
-
