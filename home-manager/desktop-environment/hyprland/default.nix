@@ -67,8 +67,6 @@ in
     source = ./autostart.lua;
   };
 
-  stylix.targets.hyprland.enable = false;
-
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
