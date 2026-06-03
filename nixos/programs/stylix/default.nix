@@ -7,6 +7,11 @@ in
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ../../../styles/catppuccin-mocha/background.jpg;
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+    };
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
