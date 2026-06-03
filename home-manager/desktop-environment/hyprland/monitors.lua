@@ -42,7 +42,7 @@ hl.monitor({
 hl.monitor({
     output = "desc:LG Electronics LG ULTRAGEAR 306MAVD8HB87",
     mode = "2560x1440@144",
-    position = "-304x-1440",
+    position = "0x-1440",
     scale = 1,
     supports_hdr = 0,
 })
