@@ -20,6 +20,7 @@ in
     ../../../home-manager/programs/yazi
     ../../../home-manager/programs/zellij
     ../../../home-manager/programs/zoxide
+    ../../../home-manager/scripts/nix-shell-templates
   ];
 
   home.shellAliases = {
