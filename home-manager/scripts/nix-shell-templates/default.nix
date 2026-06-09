@@ -1,5 +1,10 @@
 { ... }:
 {
+  imports = [
+    ../../programs/fzf
+    ../../programs/direnv
+  ];
+
   home.file.".local/bin/nix-shell-template" = {
     source = ./nst.sh;
     executable = true;
