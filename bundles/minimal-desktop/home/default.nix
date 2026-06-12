@@ -12,7 +12,6 @@ in
     ../../../home-manager/programs/nautilus
     ../../../home-manager/programs/obsidian
     ../../../home-manager/programs/onlyoffice
-    ../../../home-manager/programs/spotify
     ../../../home-manager/programs/starship
     ../../../home-manager/programs/thunderbird
     ../../../home-manager/programs/winboat

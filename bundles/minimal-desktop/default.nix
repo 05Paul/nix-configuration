@@ -11,6 +11,7 @@ in
     ../../nixos/features/pipewire
     # ../../nixos/programs/bitwarden-desktop Outdated Electron version
     ../../nixos/programs/localsend
+    ../../nixos/programs/spotify
     ../../nixos/programs/stylix
     ../../nixos/services/printing
     ../../nixos/services/scanning

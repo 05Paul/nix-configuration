@@ -1,9 +1,14 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    discord
+    # discord
   ];
 
+  programs.discord = {
+    enable = true;
+  };
+
+/*
   xdg.configFile."applications/discord.desktop".text = ''
     [Desktop Entry]
     Hidden=true
@@ -20,4 +25,5 @@
       "InstantMessaging"
     ];
   };
+*/
 }

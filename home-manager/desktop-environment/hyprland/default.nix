@@ -11,12 +11,12 @@ in
     ../hyprlock
     ../hyprmon
     ../hyprpaper
-    ../HyprPanel
     ../hyprshell
     ../hyprshot
     ../rofi
     ../satty
     ../screenshot-scripts
+    ../wayle
     ../wvkbd
     ../../programs/antimicrox
     ../../programs/kitty
