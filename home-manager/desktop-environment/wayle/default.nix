@@ -1,6 +1,7 @@
 { config, lib, pkgs, ...}:
 let
   inherit (config.customization) features;
+  inherit (config.lib.stylix) colors;
 in
 {
   home.packages = with pkgs; [
@@ -27,6 +28,7 @@ in
 
       bar = {
         bg = "transparent";
+        button-opacity = 90;
         button-variant = "basic";
         dropdown-opacity = 90;
 
@@ -39,6 +41,7 @@ in
               "hyprland-workspaces"
               "window-title"
               "systray"
+              "volume"
             ];
 
             center = [
@@ -50,7 +53,6 @@ in
             ++ lib.optional features.wifi "network"
             ++
             [
-              "volume"
               "bluetooth"
               "idle-inhibit"
               "clock"
@@ -62,6 +64,10 @@ in
       };
 
       modules = {
+        bluetooth = {
+          label-show = false;
+        };
+
         clock = {
           format = "%d-%m-%Y %H:%M:%S";
           dropdown-show-seconds = true;
@@ -75,6 +81,10 @@ in
           ];
         };
 
+        idle-inhibit = {
+          label-show = false;
+        };
+
         weather = {
           location = "Vienna";
         };
@@ -86,16 +96,16 @@ in
 
       styling = {
         palette = {
-          bg = "#11111b";
-          surface = "#181825";
-          elevated = "#1e1e2e";
-          fg = "#cdd6f4";
-          fg-muted = "#bac2de";
-          primary = "#b4befe";
-          red = "#f38ba8";
-          yellow = "#f9e2af";
-          green = "#a6e3a1";
-          blue = "#74c7ec";
+          bg = "#${colors.base00}";
+          surface = "#${colors.base00}";
+          elevated = "#${colors.base01}";
+          fg = "#${colors.base05}";
+          fg-muted = "#${colors.base0E}";
+          primary = "#${colors.base07}";
+          red = "#${colors.base08}";
+          yellow = "#${colors.base0A}";
+          green = "#${colors.base0B}";
+          blue = "#${colors.base0D}";
         };
       };
     };

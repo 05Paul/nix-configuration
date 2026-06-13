@@ -6,6 +6,7 @@ in
 {
   imports = [
     ../cliphist
+    ../flameshot
     ../hypridle
     ../hyprlauncher
     ../hyprlock

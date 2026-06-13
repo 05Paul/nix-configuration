@@ -30,7 +30,7 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + R",
-    hl.dsp.exec_cmd("pkill hyprpanel -9; hyprpanel& systemctl --user restart hyprshell"),
+    hl.dsp.exec_cmd("systemctl --user restart hyprshell wayle"),
     {
         description = "Restart Panel & Shell",
     }
@@ -62,12 +62,27 @@ hl.bind(
 
 hl.bind(
     "Print",
-    hl.dsp.exec_cmd("screenshot"),
+    hl.dsp.exec_cmd("flameshot gui"),
     {
         description = "Screenshot",
     }
 )
 
+hl.bind(
+    "ALT + Print",
+    hl.dsp.exec_cmd("flameshot launcher"),
+    {
+        description = "Screenshot",
+    }
+)
+
+hl.bind(
+    "CTRL + Print",
+    hl.dsp.exec_cmd("flameshot full"),
+    {
+        description = "Screenshot (Fullscreen)",
+    }
+)
 -------------------------------------------------------------------------------
 -- hyprland general
 -------------------------------------------------------------------------------
