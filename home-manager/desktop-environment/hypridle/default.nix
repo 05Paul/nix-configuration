@@ -29,7 +29,9 @@
 
         {
           timeout = 600;
-          on-timeout = "systemctl suspend";
+          on-timeout = ''
+            bash -c 'if [ "$(loginctl show-session $(loginctl show-seat seat0 --value -p ActiveSession) --value -p TTY)" = "$(ps -o tty= -p $(pidof Hyprland | head -n 1) | tr -d " ")" ]; then systemctl suspend; fi'
+          '';
         }
       ];
     };
