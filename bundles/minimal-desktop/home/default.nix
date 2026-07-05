@@ -6,6 +6,7 @@ in
   imports = [
     ../../../home-manager/programs/alacritty
     ../../../home-manager/programs/discord
+    ../../../home-manager/programs/drawy
     ../../../home-manager/programs/firefox
     ../../../home-manager/programs/geogebra
     ../../../home-manager/programs/kopia/ui
