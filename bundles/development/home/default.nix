@@ -6,5 +6,6 @@
     ../../../home-manager/programs/docker
     ../../../home-manager/programs/godot
     ../../../home-manager/programs/intellij
+    ../../../home-manager/programs/obs
   ];
 }
