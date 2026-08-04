@@ -70,6 +70,23 @@
             };
 
           };
+
+          traefik = {
+            rule = "Host('traefik.skamrada.dev')";
+            entryPoints = [
+              "websecure"
+            ];
+
+            service = "traefik";
+            tls = {
+              certResolver = "letsencrypt";
+            };
+
+            middlewares = [
+              "lan-only@file"
+            ];
+
+          };
         };
 
         services = {
@@ -81,6 +98,14 @@
             ];
 
             passHostHeader = true;
+          };
+
+          traefik.loadBalancer = {
+            servers = [
+              {
+                url = "http://172.16.0.100:8080";
+              }
+            ];
           };
         };
       };
