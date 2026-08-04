@@ -25,7 +25,7 @@
     wait-online = {
       enable = true;
       anyInterface = true;
-      timeout = 10;
+      timeout = 30;
     };
   };
 
