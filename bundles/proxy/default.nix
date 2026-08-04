@@ -72,7 +72,7 @@
           };
 
           traefik = {
-            rule = "Host('traefik.skamrada.dev')";
+            rule = "Host(`traefik.skamrada.dev`)";
             entryPoints = [
               "websecure"
             ];
