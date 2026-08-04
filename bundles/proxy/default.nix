@@ -162,6 +162,7 @@
       "traefik.http.routers.dockge.entrypoints" = "websecure";
       "traefik.http.routers.dockge.tls" = "true";
       "traefik.http.routers.dockge.tls.certresolver" = "letsencrypt";
+      "traefik.http.routers.dockge.middlewares" = "lan-only@file";
     };
 
     environment = {
