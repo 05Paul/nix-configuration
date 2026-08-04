@@ -10,6 +10,7 @@
 
   services.flatpak.packages = [
     "com.feaneron.Boatswain"
+    "com.core447.StreamController"
   ];
 
   services.udev.extraRules = ''
