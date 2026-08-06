@@ -46,12 +46,6 @@
 
     dynamicConfigOptions = {
       http = {
-        serverTransports = {
-          forceInsecureTransport = {
-            insecureSkipVerify = true;
-          };
-        };
-
         middlewares = {
           lan-only = {
             ipAllowList.sourceRange = [
