@@ -55,6 +55,24 @@
               "192.168.8.0/24"
             ];
           };
+
+          nextcloud-secure-headers = {
+            headers = {
+              hostProxyHeaders = [
+                "X-Forwarded-Host"
+              ];
+              referrerPolicy = "same-origin";
+              customRequestHeaders = {
+                X-Forwarded-Proto = "https";
+              };
+            };
+          };
+
+          https-redirect = {
+            redirectscheme = {
+              scheme = "https";
+            };
+          };
         };
 
         routers = {
@@ -87,6 +105,23 @@
             ];
 
           };
+
+          nextcloud = {
+            rule = "Host(`nextcloud.skamrada.dev`)";
+            entryPoints = [
+              "websecure"
+            ];
+
+            service = "nextcloud";
+            tls = {
+              certResolver = "letsencrypt";
+            };
+
+            middlewares = [
+              "nextcloud-secure-headers"
+              "https-redirect"
+            ];
+          };
         };
 
         services = {
@@ -104,6 +139,14 @@
             servers = [
               {
                 url = "http://172.16.0.100:8080";
+              }
+            ];
+          };
+
+          nextcloud.loadBalancer = {
+            servers = [
+              {
+                url = "http://172.16.0.100:11000";
               }
             ];
           };
