@@ -58,7 +58,7 @@
 
           nextcloud-secure-headers = {
             headers = {
-              hostProxyHeaders = [
+              hostsProxyHeaders = [
                 "X-Forwarded-Host"
               ];
               referrerPolicy = "same-origin";
