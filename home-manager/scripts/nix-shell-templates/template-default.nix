@@ -17,7 +17,7 @@
       ];
 
       shellHook = ''
-        epxort shell=${pkgs.bash}
+        export shell=${pkgs.bash}
       '';
     };
   };

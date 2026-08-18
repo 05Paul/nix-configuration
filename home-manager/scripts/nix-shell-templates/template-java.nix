@@ -18,7 +18,7 @@
       ];
 
       shellHook = ''
-        epxort shell=${pkgs.bash}
+        export shell=${pkgs.bash}
         export JAVA_HOME=${pkgs.jdk25}/lib/openjdk
         java -version
       '';

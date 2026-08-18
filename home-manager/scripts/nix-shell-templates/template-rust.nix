@@ -19,7 +19,7 @@
       ];
 
       shellHook = ''
-        epxort shell=${pkgs.bash}
+        export shell=${pkgs.bash}
         cargo --version
         rustc --version
       '';
