@@ -15,7 +15,7 @@ in
     ../../../home-manager/programs/onlyoffice
     ../../../home-manager/programs/starship
     ../../../home-manager/programs/thunderbird
-    ../../../home-manager/programs/winboat
+    # ../../../home-manager/programs/winboat # currently insecure because of electron
     ../../../home-manager/programs/xournalpp
     ../../../home-manager/programs/yazi
     ../../../home-manager/programs/zellij
