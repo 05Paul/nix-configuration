@@ -19,6 +19,7 @@ in
       ../../nixos/features/bluetooth-wakeup
       ../../nixos/programs/flatpak/hytale
       ../../nixos/programs/steam/gamescope-session
+      ../../nixos/virtualisation/virt-manager
     ];
 
   customization = {
