@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
       # inputs.nixpkgs.follows = "nixpkgs";
@@ -44,38 +49,39 @@
       x86 = "x86_64-linux";
       mkNixOSConfiguration = 
         {
-          arch,
+          arch ? x86,
           dir,
-          nixpkgs,
-          home-manager,
-          pkgs-unstable,
+          nixpkgs ? inputs.nixpkgs,
+          nixpkgs-unstable ? inputs.nixpkgs-unstable,
+          home-manager ? inputs.home-manager,
+          home-manager-unstable ? inputs.home-manager-unstable,
           modules ? [],
+          home-manager-modules ? [],
+          home-manager-extra-special-args ? {},
         }:
         nixpkgs.lib.nixosSystem {
           system = arch;
           specialArgs = let
             system = arch;
           in {
-            pkgs-un = import pkgs-unstable {
+            pkgs-un = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
             };
           };
           modules = [
             ./hosts/${dir}/configuration.nix
-            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.sharedModules = [
                 inputs.nixvim.homeModules.nixvim
-                inputs.spicetify.homeManagerModules.spicetify
-              ];
+              ] ++ home-manager-modules;
               home-manager.extraSpecialArgs = {
-                pkgs-unstable = pkgs-unstable.legacyPackages.${arch};
-                spicetify = inputs.spicetify;
-              };
+                pkgs-unstable = nixpkgs-unstable.legacyPackages.${arch};
+                home-manager-unstable = home-manager-unstable;
+              } // home-manager-extra-special-args;
             }
           ] ++ modules;
         };
@@ -83,78 +89,58 @@
 
     {
       nixosConfigurations.nixos = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-vm";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
       
       nixosConfigurations.nixos-desktop = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-desktop";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
+        modules = [
+          inputs.nix-flatpak.nixosModules.nix-flatpak
+        ];
+        home-manager-modules = [
+          inputs.spicetify.homeManagerModules.spicetify
+        ];
+        home-manager-extra-special-args = {
+          spicetify = inputs.spicetify;
+        };
       };
 
       nixosConfigurations.nixos-laptop = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-laptop";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
         modules = [
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+          inputs.nix-flatpak.nixosModules.nix-flatpak
         ];
+        home-manager-modules = [
+          inputs.spicetify.homeManagerModules.spicetify
+        ];
+        home-manager-extra-special-args = {
+          spicetify = inputs.spicetify;
+        };
       };
 
       nixosConfigurations.nixos-compute-1 = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-compute-1";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-compute-2 = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-compute-2";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-compute-3 = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-compute-3";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-wings = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-wings";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-proxy-2 = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-proxy-2";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
 
       nixosConfigurations.nixos-dockge = mkNixOSConfiguration {
-        arch = x86;
         dir = "nixos-dockge";
-        nixpkgs = inputs.nixpkgs;
-        pkgs-unstable = inputs.nixpkgs-unstable;
-        home-manager = inputs.home-manager;
       };
     };
 }
