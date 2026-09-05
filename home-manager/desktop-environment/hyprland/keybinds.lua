@@ -253,7 +253,7 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + SHIFT + up",
-    hl.dsp.window.move({
+    hl.dsp.workspace.move({
         monitor = "+1",
     }),
     {
@@ -263,7 +263,7 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + SHIFT + down",
-    hl.dsp.window.move({
+    hl.dsp.workspace.move({
         monitor = "-1",
     }),
     {
