@@ -16,7 +16,6 @@ in
       ../../bundles/gaming
       ../../bundles/laptop
       ../../bundles/studying
-      ../../nixos/programs/flatpak/streamdeck
     ];
 
   customization = {

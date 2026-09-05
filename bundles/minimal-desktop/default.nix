@@ -15,6 +15,7 @@ in
     ../../nixos/programs/stylix
     ../../nixos/services/printing
     ../../nixos/services/scanning
+    ../../nixos/programs/flatpak/streamdeck
   ];
 
   home-manager.users."${user.name}".imports = [
