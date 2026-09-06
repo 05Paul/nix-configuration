@@ -16,6 +16,11 @@ let
       height = 1080.0;
       width = 1920.0;
     }
+    {
+      name = "eDP-1";
+      height = 1504.0;
+      width = 2256.0;
+    }
   ];
 
   forMonitors = name: widget:
@@ -34,6 +39,8 @@ in
 {
   imports = [
     (home-manager-unstable + "/modules/programs/noctalia.nix")
+    ../gnome-keyring
+    ../../programs/bitwarden-cli
   ];
 
   programs.noctalia = {
@@ -189,7 +196,25 @@ in
             placement_width = monitor.width;
             rotation = 0.0;
             type = "calendar";
-          })) //        {
+          })) //
+        {
+        };
+      };
+
+      plugins = {
+        enabled = [
+          "noctalia/bitwarden"
+          "radimous/prismlauncher-instances"
+        ];
+      };
+
+      plugin_settings = {
+        "noctalia/bitwarden" = {
+          clear_clipboard_seconds = 30;
+          gen_passphrase_capitalize = true;
+          gen_passphrase_include_number = true;
+          gen_passphrase_separator = ".";
+          gen_passphrase_words = 5;
         };
       };
     

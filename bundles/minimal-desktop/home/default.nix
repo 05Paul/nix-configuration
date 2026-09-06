@@ -9,11 +9,13 @@ in
     ../../../home-manager/programs/drawy
     ../../../home-manager/programs/firefox
     ../../../home-manager/programs/geogebra
+    ../../../home-manager/programs/gnome-calendar
     ../../../home-manager/programs/kopia/ui
     ../../../home-manager/programs/nautilus
     ../../../home-manager/programs/obsidian
     ../../../home-manager/programs/onlyoffice
     ../../../home-manager/programs/starship
+    ../../../home-manager/programs/super-productivity
     ../../../home-manager/programs/thunderbird
     # ../../../home-manager/programs/winboat # currently insecure because of electron
     ../../../home-manager/programs/xournalpp
@@ -22,6 +24,8 @@ in
     ../../../home-manager/programs/zoxide
     ../../../home-manager/scripts/nix-shell-templates
   ];
+
+  xdg.mimeApps.enable = true;
 
   home.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake /home/${user.name}/configuration"; 

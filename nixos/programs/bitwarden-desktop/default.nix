@@ -4,14 +4,13 @@ let
 in
 {
   home-manager.users."${user.name}" = {
-    services.gnome-keyring.enable = true;
-    home.packages = with pkgs; [
-      gcr
+    imports = [
+      ../../../home-manager/desktop-environment/gnome-keyring
+      ../../../home-manager/programs/seahorse
     ];
   };
 
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
-    seahorse
   ];
 }
