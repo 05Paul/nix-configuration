@@ -30,5 +30,10 @@ in
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
     };
+
+    home.file.".styles" = {
+      source = ../../../styles;
+      recursive = true;
+    };
   };
 }

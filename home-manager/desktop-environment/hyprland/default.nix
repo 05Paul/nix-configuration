@@ -5,19 +5,11 @@ let
 in
 {
   imports = [
-    ../cliphist
-    ../flameshot
-    ../hypridle
-    ../hyprlauncher
-    ../hyprlock
     ../hyprmon
     ../hyprpaper
-    ../hyprshell
-    ../hyprshot
+    ../noctalia
     ../rofi
     ../satty
-    ../screenshot-scripts
-    ../wayle
     ../wvkbd
     ../../programs/antimicrox
     ../../programs/kitty

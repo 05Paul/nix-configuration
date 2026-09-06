@@ -38,6 +38,11 @@
       url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     };
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
     };
@@ -96,6 +101,7 @@
         dir = "nixos-desktop";
         modules = [
           inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.noctalia-greeter.nixosModules.default
         ];
         home-manager-modules = [
           inputs.spicetify.homeManagerModules.spicetify
@@ -110,6 +116,7 @@
         modules = [
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.noctalia-greeter.nixosModules.default
         ];
         home-manager-modules = [
           inputs.spicetify.homeManagerModules.spicetify

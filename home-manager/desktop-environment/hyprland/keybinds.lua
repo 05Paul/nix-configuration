@@ -24,15 +24,15 @@ hl.bind(
     mainMod .. " + N",
     hl.dsp.exec_cmd("pkill nmtui || kitty --class floating nmtui"),
     {
-        description = "Toggle hyprmon tui",
+        description = "Toggle networkmanager tui",
     }
 )
 
 hl.bind(
     mainMod .. " + R",
-    hl.dsp.exec_cmd("systemctl --user restart hyprshell wayle"),
+    hl.dsp.exec_cmd("systemctl --user restart noctalia"),
     {
-        description = "Restart Panel & Shell",
+        description = "Restart noctalia",
     }
 )
 
@@ -46,15 +46,31 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + V",
-    hl.dsp.exec_cmd("clipboard"),
+    hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"),
     {
         description = "Clipboard",
     }
 )
 
 hl.bind(
+    "ALT + TAB",
+    hl.dsp.exec_cmd("noctalia msg window-switcher"),
+    {
+        description = "Switch window",
+    }
+)
+
+hl.bind(
+    mainMod .. " + SUPER_L",
+    hl.dsp.exec_cmd("noctalia msg panel-toggle control-center home"),
+    {
+        description = "Open control center",
+    }
+)
+
+hl.bind(
     mainMod .. " + Space",
-    hl.dsp.exec_cmd("hyprlauncher"),
+    hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"),
     {
         description = "Launcher",
     }
@@ -62,7 +78,7 @@ hl.bind(
 
 hl.bind(
     "Print",
-    hl.dsp.exec_cmd("flameshot gui"),
+    hl.dsp.exec_cmd("noctalia msg screenshot-region"),
     {
         description = "Screenshot",
     }
@@ -70,7 +86,7 @@ hl.bind(
 
 hl.bind(
     "ALT + Print",
-    hl.dsp.exec_cmd("flameshot launcher"),
+    hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen pick"),
     {
         description = "Screenshot",
     }
@@ -78,7 +94,7 @@ hl.bind(
 
 hl.bind(
     "CTRL + Print",
-    hl.dsp.exec_cmd("flameshot full"),
+    hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"),
     {
         description = "Screenshot (Fullscreen)",
     }

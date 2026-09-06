@@ -1,32 +1,12 @@
-{ config, pkgs, lib, ... }: 
+{ config, pkgs, ... }: 
 let
   inherit (config.customization) user;
-  inherit (config.customization) desktop;
-  inherit (config.customization) gamescope;
-  inherit (config.lib.stylix) colors;
 in
 {
   imports = [
     ../../features/pipewire
+    ../../services/noctalia-greeter
   ];
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      terminal = {
-        vt = desktop.tty;
-      };
-      default_session = {
-        command = "${pkgs.greetd}/bin/agreety --cmd Hyprland";
-        user = "${user.name}";
-      };
-
-      initial_session = {
-        command = "Hyprland";
-        user = "${user.name}";
-      };
-    };
-  };
 
   services.upower = {
     enable = true;
