@@ -11,12 +11,4 @@ in
 
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-
-  networking.bridges.br0 = {
-    interfaces = [
-      "enp5s0"
-    ];
-  };
-
-  networking.interfaces.br0.useDHCP = true;  
 }
