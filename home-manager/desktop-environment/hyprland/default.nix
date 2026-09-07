@@ -17,6 +17,7 @@ in
 
   home.packages = with pkgs; [
     jq
+    playerctl
   ];
 
   home.file.".local/bin/hyprfocus" = {
