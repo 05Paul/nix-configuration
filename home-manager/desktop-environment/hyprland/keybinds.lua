@@ -2,13 +2,13 @@ local mainMod = "SUPER"
 local terminal = "alacritty"
 
 -------------------------------------------------------------------------------
--- utility programs
+-- 1. Programs
 -------------------------------------------------------------------------------
 hl.bind(
     mainMod .. " + B",
     hl.dsp.exec_cmd("firefox"),
     {
-        description = "Open firefox",
+        description = "Firefox",
     }
 )
 
@@ -16,7 +16,7 @@ hl.bind(
     mainMod .. " + P",
     hl.dsp.exec_cmd("pkill hyprmon || kitty --class floating hyprmon"),
     {
-        description = "Toggle hyprmon tui",
+        description = "Hyprmon TUI",
     }
 )
 
@@ -24,15 +24,7 @@ hl.bind(
     mainMod .. " + N",
     hl.dsp.exec_cmd("pkill nmtui || kitty --class floating nmtui"),
     {
-        description = "Toggle networkmanager tui",
-    }
-)
-
-hl.bind(
-    mainMod .. " + R",
-    hl.dsp.exec_cmd("systemctl --user restart noctalia"),
-    {
-        description = "Restart noctalia",
+        description = "Networkmanager TUI",
     }
 )
 
@@ -44,6 +36,9 @@ hl.bind(
     }
 )
 
+-------------------------------------------------------------------------------
+-- 2. Noctalia
+-------------------------------------------------------------------------------
 hl.bind(
     mainMod .. " + V",
     hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"),
@@ -56,7 +51,7 @@ hl.bind(
     "ALT + TAB",
     hl.dsp.exec_cmd("noctalia msg window-switcher"),
     {
-        description = "Switch window",
+        description = "Window switcher",
     }
 )
 
@@ -64,7 +59,7 @@ hl.bind(
     mainMod .. " + SUPER_L",
     hl.dsp.exec_cmd("noctalia msg panel-toggle control-center home"),
     {
-        description = "Open control center",
+        description = "Control center",
     }
 )
 
@@ -80,7 +75,7 @@ hl.bind(
     "Print",
     hl.dsp.exec_cmd("noctalia msg screenshot-region"),
     {
-        description = "Screenshot",
+        description = "Screenshot (Region)",
     }
 )
 
@@ -88,7 +83,7 @@ hl.bind(
     "ALT + Print",
     hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen pick"),
     {
-        description = "Screenshot",
+        description = "Screenshot (Fullscreen)",
     }
 )
 
@@ -96,11 +91,20 @@ hl.bind(
     "CTRL + Print",
     hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"),
     {
-        description = "Screenshot (Fullscreen)",
+        description = "Screenshot (Fullscreen current)",
     }
 )
+
+hl.bind(
+    mainMod .. " + R",
+    hl.dsp.exec_cmd("systemctl --user restart noctalia"),
+    {
+        description = "Restart noctalia",
+    }
+)
+
 -------------------------------------------------------------------------------
--- hyprland general
+-- 3. Hyprland - General
 -------------------------------------------------------------------------------
 hl.bind(
     mainMod .. " + F",
@@ -112,7 +116,7 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + L",
-    hl.dsp.exec_cmd("hyprlock"),
+    hl.dsp.exec_cmd("noctalia msg session lock"),
     {
         description = "Lock screen",
     }
@@ -161,7 +165,7 @@ hl.bind(
 )
 
 -------------------------------------------------------------------------------
--- hyprland focus
+-- 4. Hyprland - Focus
 -------------------------------------------------------------------------------
 hl.bind(
     mainMod .. " + left",
@@ -204,7 +208,7 @@ hl.bind(
 )
 
 -------------------------------------------------------------------------------
--- hyprland workspace
+-- 5. Hyprland Workspace
 -------------------------------------------------------------------------------
 for i = 1, 10 do
     local key = i % 10
@@ -288,7 +292,7 @@ hl.bind(
 )
 
 -------------------------------------------------------------------------------
--- hyprland groups
+-- 6. Hyprland - Groups
 -------------------------------------------------------------------------------
 hl.bind(
     mainMod .. " + G",
@@ -365,28 +369,7 @@ hl.bind(
 )
 
 -------------------------------------------------------------------------------
--- laptop lid switch actions
--------------------------------------------------------------------------------
-hl.bind(
-    "switch:on:Lid Switch",
-    hl.dsp.exec_cmd("brightnessctl set 0%"),
-    {
-        description = "Set brightness to 0%",
-        locked = true,
-    }
-)
-
-hl.bind(
-    "switch:off:Lid Switch",
-    hl.dsp.exec_cmd("brightnessctl -r"),
-    {
-        description = "Set brightness to previous value",
-        locked = true,
-    }
-)
-
--------------------------------------------------------------------------------
--- media control
+-- 7. Media control
 -------------------------------------------------------------------------------
 hl.bind(
     "XF86AudioPlay",
@@ -463,11 +446,11 @@ hl.bind(
 )
 
 -------------------------------------------------------------------------------
--- brightness control
+-- 8. Brightness control
 -------------------------------------------------------------------------------
 hl.bind(
     "XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("brightnessctl set +5%; brightnessctl -s"),
+    hl.dsp.exec_cmd("noctalia msg brightness-up; brightnessctl -s"),
     {
         description = "Increase brightness by 5%",
         locked = true,
@@ -476,9 +459,27 @@ hl.bind(
 
 hl.bind(
     "XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("brightnessctl set 5%-; brightnessctl -s"),
+    hl.dsp.exec_cmd("noctalia msg brightness-down; brightnessctl -s"),
     {
         description = "Decrease brightness by 5%",
+        locked = true,
+    }
+)
+
+hl.bind(
+    "switch:on:Lid Switch",
+    hl.dsp.exec_cmd("brightnessctl set 0%"),
+    {
+        description = "Set brightness to 0%",
+        locked = true,
+    }
+)
+
+hl.bind(
+    "switch:off:Lid Switch",
+    hl.dsp.exec_cmd("brightnessctl -r"),
+    {
+        description = "Set brightness to previous value",
         locked = true,
     }
 )

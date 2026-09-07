@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 let
-  inherit (config.customization) gamescope;
   inherit (config.lib.stylix) colors;
 in
 {
@@ -83,16 +82,6 @@ in
               },
           },
       })
-
-      hl.bind(
-          "SUPER + C",
-          hl.dsp.exec_cmd("chvt ${ toString gamescope.tty }"),
-          {
-              description = "Switch to gamescope session",
-              locked = true,
-              long_press = true,
-          }
-      )
     '';
   };
 }

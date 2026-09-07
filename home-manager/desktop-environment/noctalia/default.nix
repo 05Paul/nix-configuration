@@ -1,5 +1,6 @@
-{ home-manager-unstable, pkgs-unstable, ...}:
-let 
+{ home-manager-unstable, pkgs-unstable, config, ...}:
+let
+  inherit (config.lib.stylix) colors;
   monitors = [
     {
       name = "DP-1";
@@ -58,6 +59,14 @@ in
           margin_ends = 10;
           thickness = 50;
 
+          start = [
+            "screenshot"
+            "workspaces"
+            "active_window"
+            "media"
+            "keybinds"
+          ];
+
           end = [
             "tray"
             "clipboard"
@@ -67,14 +76,6 @@ in
             "brightness"
             "battery"
             "session"
-          ];
-
-          start = [
-            "screenshot"
-            "workspaces"
-            "active_window"
-            "media"
-            "privacy"
           ];
         };
       };
@@ -205,6 +206,7 @@ in
         enabled = [
           "noctalia/bitwarden"
           "radimous/prismlauncher-instances"
+          "kenn/keybind-cheatsheet"
         ];
       };
 
@@ -221,6 +223,8 @@ in
       shell = {
         font_family = "JetBrainsMono NF";
         lang = "en";
+        launch_apps_as_systemd_services = true;
+        settings_window_translucent = true;
         greeter_sync = {
           auto_sync = true;
         };
@@ -251,8 +255,54 @@ in
       };
     
       widget = {
+        active_window = {
+          color = "secondary";
+        };
+
+        battery = {
+          color = "#${colors.base0B}";
+        };
+
+        bluetooth = {
+          color = "primary";
+        };
+
+        brightness = {
+          color = "#${colors.base0A}";
+        };
+
+        clipboard = {
+          color = "#${colors.base0F}";
+        };
+
         clock = {
           format = "{:%H:%M:%S}";
+          color = "primary";
+        };
+
+        keybinds = {
+          type = "kenn/keybind-cheatsheet:keybinds";
+          color = "#${colors.base0C}";
+        };
+
+        media = {
+          color = "primary";
+        };
+
+        notifications = {
+          color = "#${colors.base07}";
+        };
+
+        screenshot = {
+          color = "#${colors.base09}";
+        };
+
+        session = {
+          color = "error";
+        };
+
+        volume = {
+          color = "tertiary";
         };
       };
     };
