@@ -1,6 +1,7 @@
-{ home-manager-unstable, pkgs-unstable, config, ...}:
+{ home-manager-unstable, pkgs-unstable, config, lib, ...}:
 let
   inherit (config.lib.stylix) colors;
+  inherit (config.customization) features;
   monitors = [
     {
       name = "DP-1";
@@ -92,6 +93,11 @@ in
             type = "google";
           };
         };
+      };
+
+      control_center = {
+        hidden_tabs = [
+        ] ++ lib.optional (!features.battery) "power";
       };
 
       idle = {
