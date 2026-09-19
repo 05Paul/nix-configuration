@@ -140,7 +140,7 @@
         installRustc = false;
       };
 
-      sqls = {
+      sqruff = {
         enable = true;
       };
 
