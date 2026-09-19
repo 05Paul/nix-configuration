@@ -5,6 +5,7 @@ in
 {
   imports = [
     ../../features/pipewire
+    ../../features/gnome-keyring
     ../../services/noctalia-greeter
   ];
 
