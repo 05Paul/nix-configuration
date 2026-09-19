@@ -3,7 +3,7 @@ let
   inherit (config.customization) user;
 in
 {
-  programs.noctalia-greeter = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
     passwordless-sync-users = [ 
       "${user.name}"
