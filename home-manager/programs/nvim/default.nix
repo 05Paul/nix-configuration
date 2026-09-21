@@ -12,6 +12,7 @@
     ./plugins/lualine
     ./plugins/markview
     ./plugins/telescope
+    ./plugins/todo-comments
     ./plugins/transparent
     ./plugins/treesitter
     ./plugins/web-devicons
