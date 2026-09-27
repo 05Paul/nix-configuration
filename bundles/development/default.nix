@@ -3,6 +3,7 @@
 in
 {
   imports = [
+    ../../nixos/services/mesh-central
     ../../nixos/programs/devenv
     ../../nixos/virtualisation/docker
   ];
