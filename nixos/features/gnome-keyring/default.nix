@@ -3,7 +3,10 @@ let
   inherit (config.customization) user;
 in
 { 
-  security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services = {
+    login.enableGnomeKeyring = true;
+    greetd.enableGnomeKeyring = true;
+  };
 
   home-manager.users."${user.name}" = {
     imports = [
