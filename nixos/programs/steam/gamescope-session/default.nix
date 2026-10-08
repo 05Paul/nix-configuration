@@ -1,8 +1,6 @@
 { pkgs, config, ... }:
 let
   inherit (config.customization) user;
-  inherit (config.customization) desktop;
-  inherit (config.customization) gamescope;
 in
 {
   imports = [
@@ -12,8 +10,6 @@ in
   environment.systemPackages = with pkgs; [
     mangohud
   ];
-
-  boot.kernelPackages = pkgs.linuxPackages;
 
   programs = {
     gamescope = {

@@ -14,12 +14,12 @@ in
   };
 
   services.ddccontrol = {
-    enable = true;
+    # enable = true; HACK: not working on newest kernel
   };
   
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [
-      ddcci-driver
+      # ddcci-driver  HACK: not working on newest kernel
     ];
 
     kernelModules = [
