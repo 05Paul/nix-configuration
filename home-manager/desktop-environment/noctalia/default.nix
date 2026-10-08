@@ -40,7 +40,7 @@ let
 in
 {
   imports = [
-    (home-manager-unstable + "/modules/programs/noctalia.nix")
+    (home-manager-unstable + "/modules/programs/noctalia/default.nix")
     ../gnome-keyring
     ../../programs/bitwarden-cli
   ];
