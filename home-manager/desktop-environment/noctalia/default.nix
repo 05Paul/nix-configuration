@@ -70,9 +70,6 @@ in
 
           end = [
             "tray"
-            "clipboard"
-            "notifications"
-            "bluetooth"
             "volume"
             "brightness"
             "battery"
@@ -96,6 +93,27 @@ in
       };
 
       control_center = {
+        shortcuts = [
+          {
+            type = "wifi";
+          }
+          {
+            type = "bluetooth";
+          }
+          {
+            type = "caffeine";
+          }
+          {
+            type = "clipboard";
+          }
+          {
+            type = "notification";
+          }
+          {
+            type = "nightlight";
+          }
+        ];
+
         hidden_tabs = [
         ] ++ lib.optional (!features.battery) "power";
       };
@@ -133,6 +151,11 @@ in
       };
   
       lockscreen = {
+        transition = [
+          "fade"
+        ];
+        transition_time = 500;
+
         wallpaper = "/home/paul/.styles/catppuccin-mocha/lockscreen.jpg";
       };
   
@@ -231,8 +254,16 @@ in
         lang = "en";
         launch_apps_as_systemd_services = true;
         settings_window_translucent = true;
+
         greeter_sync = {
           auto_sync = true;
+        };
+
+        screenshot = {
+          annotate = true;
+          confirm_region = true;
+          save_to_file = true;
+          skip_annotate_on_copy_save = true;
         };
       };
     
