@@ -5,7 +5,10 @@ in
 { 
   security.pam.services = {
     login.enableGnomeKeyring = true;
-    greetd.enableGnomeKeyring = true;
+    greetd = {
+      enableGnomeKeyring = true;
+      fprintAuth = false;
+    };
   };
 
   home-manager.users."${user.name}" = {
