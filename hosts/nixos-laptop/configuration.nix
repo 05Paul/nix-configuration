@@ -38,7 +38,9 @@ in
   };
   
   home-manager.users."${user.name}" = { 
-    imports = [];
+    imports = [
+      ../../home-manager/programs/ssh/progpara.nix
+    ];
 
     home = {
       stateVersion = "25.05";
