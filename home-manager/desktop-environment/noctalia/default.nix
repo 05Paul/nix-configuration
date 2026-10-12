@@ -69,6 +69,7 @@ in
           ];
 
           end = [
+            "launcher"
             "tray"
             "volume"
             "brightness"
@@ -144,6 +145,12 @@ in
             timeout = 600.0;
           };
         };
+      };
+
+      launcher = {
+        pinned = [
+          "com.github.xournalpp.xournalpp"
+        ];
       };
 
       location = {
@@ -261,7 +268,6 @@ in
 
         screenshot = {
           annotate = true;
-          confirm_region = true;
           save_to_file = true;
           skip_annotate_on_copy_save = true;
         };
@@ -308,7 +314,7 @@ in
           color = "#${colors.base0A}";
         };
 
-        clipboard = {
+        launcher = {
           color = "#${colors.base0F}";
         };
 
