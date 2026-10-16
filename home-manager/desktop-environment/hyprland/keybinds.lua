@@ -465,21 +465,3 @@ hl.bind(
         locked = true,
     }
 )
-
-hl.bind(
-    "switch:on:Lid Switch",
-    hl.dsp.exec_cmd("brightnessctl set 0%"),
-    {
-        description = "Set brightness to 0%",
-        locked = true,
-    }
-)
-
-hl.bind(
-    "switch:off:Lid Switch",
-    hl.dsp.exec_cmd("brightnessctl -r"),
-    {
-        description = "Set brightness to previous value",
-        locked = true,
-    }
-)

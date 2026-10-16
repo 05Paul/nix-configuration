@@ -11,10 +11,16 @@ hl.config({
         touchdevice = {
             output = "desc:Wacom Tech Wacom One 13T 5BQ01D1000268",
         },
-    }
+    },
 })
 
 -- gestures
+hl.config({
+    gestures = {
+        workspace_swipe_touch = true,
+    },
+})
+
 hl.gesture({
     fingers = 3,
     direction = "horizontal",

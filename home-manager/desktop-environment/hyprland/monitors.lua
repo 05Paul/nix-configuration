@@ -8,12 +8,48 @@ hl.monitor({
 })
 
 -- laptop monitor
-hl.monitor({
+local laptopMonitor = {
     output = "eDP-1",
     mode = "2256x1504@60",
     position = "0x0",
     scale = 1,
-})
+}
+
+hl.monitor(laptopMonitor)
+
+local function disableLaptopMonitor()
+    hl.monitor({
+        output = laptopMonitor.output,
+        disabled = true,
+    })
+end
+
+hl.bind(
+    "switch:on:Lid Switch",
+    disableLaptopMonitor,
+    {
+        description = "Disable laptop monitor",
+        locked = true,
+    }
+)
+
+local function enableLaptopMonitor()
+    hl.monitor({
+        output = laptopMonitor.output,
+        mode = laptopMonitor.mode,
+        position = laptopMonitor.position,
+        disabled = false,
+    })
+end
+
+hl.bind(
+    "switch:off:Lid Switch",
+    enableLaptopMonitor,
+    {
+        description = "Enable laptop monitor",
+        locked = true,
+    }
+)
 
 -- drawing tablet
 hl.monitor({

@@ -14,7 +14,7 @@ let
       width = 2560.0;
     }
     {
-      name = "HDMI-A-2";
+      name = "Wacom";
       height = 1080.0;
       width = 1920.0;
     }
@@ -69,13 +69,27 @@ in
           ];
 
           end = [
-            "launcher"
             "tray"
             "volume"
             "brightness"
             "battery"
             "session"
           ];
+
+          monitor = {
+            tablet = {
+              match = "Wacom Tech Wacom One 13T 5BQ01D1000268";
+              end = [
+                "osk"
+                "launcher"
+                "tray"
+                "volume"
+                "brightness"
+                "battery"
+                "session"
+              ];
+            };
+          };
         };
       };
 
@@ -268,6 +282,7 @@ in
 
         screenshot = {
           annotate = true;
+          confirm_region = true;
           save_to_file = true;
           skip_annotate_on_copy_save = true;
         };
@@ -334,6 +349,14 @@ in
 
         notifications = {
           color = "#${colors.base07}";
+        };
+
+        osk = {
+          glyph = "keyboard";
+          type = "custom_button";
+          actions = {
+            left = "exec toggle_osk";
+          };
         };
 
         screenshot = {
