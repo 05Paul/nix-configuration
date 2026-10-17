@@ -38,13 +38,21 @@ local function enableLaptopMonitor()
         output = laptopMonitor.output,
         mode = laptopMonitor.mode,
         position = laptopMonitor.position,
+        scale = laptopMonitor.scale,
         disabled = false,
     })
+
+    hl.exec_cmd("hyprctl reload") -- HACK: should not be required in 0.56
 end
 
 hl.bind(
     "switch:off:Lid Switch",
-    enableLaptopMonitor,
+    function()
+        hl.timer(
+            enableLaptopMonitor,
+            { timeout = 500, type = "oneshot" }
+        )
+    end,
     {
         description = "Enable laptop monitor",
         locked = true,
